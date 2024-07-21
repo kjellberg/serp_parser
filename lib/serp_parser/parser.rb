@@ -1,10 +1,9 @@
 module SerpParser
   class Parser
-    attr_reader :raw_html
+    private
 
-    def initialize(html)
-      @raw_html = html
-      @doc = Nokogiri::HTML(html)
+    def schema
+      self.class::SCHEMA
     end
   end
 end
