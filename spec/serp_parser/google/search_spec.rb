@@ -43,14 +43,4 @@ RSpec.describe SerpParser::Google::Search do
       end
     end
   end
-
-  # describe "#data" do
-  #   it "matches with the expected output" do
-  #     expected = {
-  #       organic_results: [],
-  #       search_information: {}
-  #     }
-  #     expect(parser.data).to match(expected)
-  #   end
-  # end
 end

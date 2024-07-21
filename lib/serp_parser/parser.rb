@@ -18,6 +18,12 @@ module SerpParser
       execute_schema
     end
 
+    def to_h
+      {
+        organic_results: organic_results.map(&:to_h)
+      }
+    end
+
     private
 
     # Builds the accessors for the data hash based on the schema.

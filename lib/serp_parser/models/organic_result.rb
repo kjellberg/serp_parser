@@ -7,6 +7,13 @@ module SerpParser
         @title = title
         @site_links = site_links
       end
+
+      def to_h
+        {
+          title: title,
+          site_links: site_links.map(&:to_h)
+        }
+      end
     end
   end
 end
