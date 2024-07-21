@@ -20,7 +20,11 @@ RSpec.describe SerpParser::Google::Search do
 
   describe "#organic_results" do
     it "returns an array of organic results" do
-      expect(parser.organic_results).to be_an_instance_of(Array)
+      expect(parser.organic_results).to all(be_an_instance_of(SerpParser::Models::OrganicResult))
+    end
+
+    it "returns 7 organic results" do
+      expect(parser.organic_results.size).to eq(7)
     end
   end
 
