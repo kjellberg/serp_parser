@@ -5,9 +5,13 @@ module SerpParser
     # Initializes a new instance of the Search class.
     #
     # @param html [String] The raw HTML of the search results page.
-    def initialize(html, schema: nil)
-      @raw_html = html
-      @doc = Nokogiri::HTML(html)
+    def initialize(html_or_doc, schema: nil)
+      if html_or_doc.is_a?(String)
+        @doc = Nokogiri::HTML::DocumentFragment.parse(html_or_doc)
+      else
+        @doc = html_or_doc
+      end
+
       @data = {}
       @schema = nil
 
@@ -15,6 +19,25 @@ module SerpParser
     end
 
     private
+
+    # Builds the accessors for the data hash based on the schema.
+    #
+    # @return [void]
+    def execute_schema
+      schema.each do |key, values|
+        @data[key] = execute_collection(values[:parsers]) if values[:type] == :collection
+        @data[key] = self.send(key) if values[:type] == :instance_method
+        @data[key] = {} if values[:type] == :hash
+      end
+    end
+
+    def execute_collection(parsers)
+      parsers.flat_map do |parser|
+        @doc.css(parser::SELECTOR).map.with_index do |element, index|
+          parser.new(element).processed_data
+        end
+      end
+    end
 
     def schema
       self.class::SCHEMA

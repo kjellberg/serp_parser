@@ -6,6 +6,12 @@ module SerpParser
         SCHEMA = {
           title: {
             type: :instance_method
+          },
+          site_links: {
+            type: :collection,
+            parsers: [
+              SerpParser::Google::OrganicResults::SiteLinks::SiteLink1
+            ]
           }
         }
 
