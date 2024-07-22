@@ -33,7 +33,7 @@ RSpec.describe SerpParser::Google::Search do
       expect(parser.organic_results.size).to eq(7)
     end
 
-    describe "#site_links" do
+    describe "#site_links of first result" do
       it "returns an array of site links" do
         expect(parser.organic_results.first.site_links).to all(be_an_instance_of(SerpParser::Models::OrganicResults::SiteLink))
       end

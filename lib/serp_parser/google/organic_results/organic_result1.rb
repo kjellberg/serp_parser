@@ -2,6 +2,8 @@ module SerpParser
   module Google
     module OrganicResults
       class OrganicResult1 < SerpParser::Google::Search
+        include SerpParser::Google::OrganicResults::Shared
+
         SELECTOR = "div.g.Ww4FFb"
         SCHEMA = {
           title: {
@@ -21,20 +23,8 @@ module SerpParser
           }
         }
 
-        def title
-          clean_text @doc.css("h3").text
-        end
-
         def description
           clean_text @doc.css(".VwiC3b").text
-        end
-
-        def url
-          @doc.css("a").first["href"]
-        end
-
-        def processed_data
-          SerpParser::Models::OrganicResult.new(**@data)
         end
 
         private
