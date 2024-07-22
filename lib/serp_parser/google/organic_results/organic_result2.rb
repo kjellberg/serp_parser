@@ -1,0 +1,36 @@
+module SerpParser
+  module Google
+    module OrganicResults
+      class OrganicResult2 < SerpParser::Google::Search
+        include SerpParser::Google::OrganicResults::Shared
+        include SerpParser::Helpers
+
+        SELECTOR = "div.Gx5Zad.fP1Qef.xpd.EtOod.pkphOe"
+
+        # List of allowed span elements (determined by class name) in the description.
+        # @return [Array]
+        ALLOWED_DESCRIPTION_ELEMENTS = [ "r0bn4c rQMQod" ]
+
+        def description
+          element = @doc.css(".BNeawe.s3v9rd.AP7Wnd")
+          match = find_description_text_node(element)
+          remove_span_elements(match)
+          clean_text match.text
+        end
+
+        private
+
+        # Find the text node that contains the description text
+        # @param element [Nokogiri::XML::Element]
+        # @return [Nokogiri::XML::Element]
+        def find_description_text_node(element)
+          element.reverse_each.find do |node|
+            node.children.all? do |child|
+              child.text? || (child.element? && child.name == "span" && (child["class"].nil? || child["class"].strip.empty? || ALLOWED_DESCRIPTION_ELEMENTS.include?(child["class"])))
+            end
+          end
+        end
+      end
+    end
+  end
+end
