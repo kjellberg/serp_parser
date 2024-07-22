@@ -2,6 +2,7 @@ module SerpParser
   module Google
     module OrganicResults
       class OrganicResult1 < SerpParser::Google::Search
+        include SerpParser::Helpers
         include SerpParser::Google::OrganicResults::Shared
 
         SELECTOR = "div.g.Ww4FFb"
@@ -25,15 +26,6 @@ module SerpParser
 
         def description
           clean_text @doc.css(".VwiC3b").text
-        end
-
-        private
-
-        # Clean text from extra spaces
-        # @param text [String]
-        # @return [String]
-        def clean_text(text)
-          text.gsub(/\s+/, " ").strip
         end
       end
     end
