@@ -15,7 +15,8 @@ module SerpParser
           site_links: {
             type: :collection,
             parsers: [
-              SerpParser::Google::OrganicResults::SiteLinks::SiteLink1
+              SerpParser::Google::OrganicResults::SiteLinks::SiteLink1,
+              SerpParser::Google::OrganicResults::SiteLinks::SiteLink2
             ]
           }
         }
@@ -27,8 +28,7 @@ module SerpParser
         # Returns the URL of the result
         # @return [String]
         def url
-          href = @doc.css("a").first["href"]
-          href.start_with?("/url?q=") ? href.match(%r{/url\?q=(.*?)&})[1] : href
+          clean_google_url @doc.css("a").first["href"]
         end
 
         def processed_data
