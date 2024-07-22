@@ -4,9 +4,9 @@ module SerpParser
       class SiteLink
         attr_reader :title, :url
 
-        def initialize(title: nil, url: nil)
-          @title = title
-          @url = url
+        def initialize(**args)
+          @title = args[:title]
+          @url = args[:url]
         end
 
         def to_h

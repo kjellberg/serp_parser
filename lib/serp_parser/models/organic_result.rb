@@ -1,13 +1,14 @@
 module SerpParser
   module Models
     class OrganicResult
-      attr_reader :title, :description, :url, :site_links
+      attr_reader :title, :date, :description, :url, :site_links
 
-      def initialize(title: nil, description: nil, url: nil, site_links: nil)
-        @title = title
-        @description = description
-        @url = url
-        @site_links = site_links
+      def initialize(**args)
+        @title = args[:title]
+        @date = args[:date]
+        @description = args[:description]
+        @url = args[:url]
+        @site_links = args[:site_links]
       end
 
       def to_h
@@ -15,6 +16,7 @@ module SerpParser
           "title" => title,
           "description" => description,
           "url" => url,
+          "date" => date,
           "site_links" => site_links.map(&:to_h)
         }
       end

@@ -6,4 +6,5 @@ require "json"
 RSpec.describe SerpParser::Google::OrganicResults::OrganicResult1 do
   it_behaves_like "matches the expected output", "google/organic_result1/general_result"
   it_behaves_like "matches the expected output", "google/organic_result1/with_site_links"
+  it_behaves_like "matches the expected output", "google/organic_result1/with_ratings_site_links_and_date"
 end
