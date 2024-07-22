@@ -1,0 +1,23 @@
+{
+  "title": "Presidents | The White House",
+  "description": "Presidents · George Washington · John Adams · Thomas Jefferson · James Madison · James Monroe · John Quincy Adams · Andrew Jackson · Martin Van Buren.",
+  "url": "https://www.whitehouse.gov/about-the-white-house/presidents/",
+  "site_links": [
+    {
+      "title": "Joe Biden",
+      "url": "https://www.whitehouse.gov/administration/president-biden/"
+    },
+    {
+      "title": "George Washington",
+      "url": "https://www.whitehouse.gov/about-the-white-house/presidents/george-washington/"
+    },
+    {
+      "title": "George W. Bush",
+      "url": "https://www.whitehouse.gov/about-the-white-house/presidents/george-w-bush/"
+    },
+    {
+      "title": "Abraham Lincoln",
+      "url": "https://www.whitehouse.gov/about-the-white-house/presidents/abraham-lincoln/"
+    }
+  ]
+}

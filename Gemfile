@@ -6,6 +6,7 @@ gemspec
 # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
 gem "rubocop-rails-omakase", require: false
 
+gem "zeitwerk", "~> 2.6", ">= 2.6.16"
 gem "rake"
 
 # Start debugger with binding.b [https://github.com/ruby/debug]

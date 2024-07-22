@@ -2,6 +2,10 @@ require_relative "serp_parser/version"
 
 require "public_suffix"
 require "nokogiri"
+require "zeitwerk"
+
+loader = Zeitwerk::Loader.for_gem
+loader.setup # ready!
 
 module SerpParser
   autoload :Parser, "serp_parser/parser"
@@ -26,3 +30,5 @@ module SerpParser
     end
   end
 end
+
+loader.eager_load

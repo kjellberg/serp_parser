@@ -11,8 +11,8 @@ module SerpParser
 
         def to_h
           {
-            title: title,
-            url: url
+            "title" => title,
+            "url" => url
           }
         end
       end

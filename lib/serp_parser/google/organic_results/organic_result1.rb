@@ -7,6 +7,12 @@ module SerpParser
           title: {
             type: :instance_method
           },
+          description: {
+            type: :instance_method
+          },
+          url: {
+            type: :instance_method
+          },
           site_links: {
             type: :collection,
             parsers: [
@@ -16,11 +22,28 @@ module SerpParser
         }
 
         def title
-          @doc.css("h3").text
+          clean_text @doc.css("h3").text
+        end
+
+        def description
+          clean_text @doc.css(".VwiC3b").text
+        end
+
+        def url
+          @doc.css("a").first["href"]
         end
 
         def processed_data
           SerpParser::Models::OrganicResult.new(**@data)
+        end
+
+        private
+
+        # Clean text from extra spaces
+        # @param text [String]
+        # @return [String]
+        def clean_text(text)
+          text.gsub(/\s+/, " ").strip
         end
       end
     end
