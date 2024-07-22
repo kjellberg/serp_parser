@@ -7,8 +7,22 @@ module SerpParser
 
         SELECTOR = "div.g.Ww4FFb"
 
+        # Returns the date of the result
+        # @return [Date] iso8601
+        def date
+          element = @doc.css("span.LEwnzc span")
+          return nil unless element.any?
+
+          text = element.text
+          Date.parse(text).iso8601
+        rescue
+          nil
+        end
+
         def description
-          clean_text @doc.css(".VwiC3b").text
+          element = @doc.css(".VwiC3b")
+          element = remove_span_elements(element)
+          clean_text element.text
         end
       end
     end

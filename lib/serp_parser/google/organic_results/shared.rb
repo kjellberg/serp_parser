@@ -34,18 +34,6 @@ module SerpParser
           clean_google_url @doc.css("a").first["href"]
         end
 
-        # Returns the description of the result
-        # @return [Date] iso8601
-        def date
-          element = @doc.css("span.LEwnzc span")
-          return nil unless element.any?
-
-          text = element.text
-          Date.parse(text).iso8601
-        rescue
-          nil
-        end
-
         def processed_data
           SerpParser::Models::OrganicResult.new(**@data)
         end

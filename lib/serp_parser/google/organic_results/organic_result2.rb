@@ -11,11 +11,23 @@ module SerpParser
         # @return [Array]
         ALLOWED_DESCRIPTION_ELEMENTS = [ "r0bn4c rQMQod" ]
 
+        # Returns the date of the result
+        # @return [Date] iso8601
+        def date
+          element = @doc.css("div.BNeawe.s3v9rd.AP7Wnd span.r0bn4c.rQMQod")
+          return nil unless element.any?
+
+          text = element.text
+          Date.parse(text).iso8601
+        rescue
+          nil
+        end
+
         def description
           element = @doc.css(".BNeawe.s3v9rd.AP7Wnd")
-          match = find_description_text_node(element)
-          remove_span_elements(match)
-          clean_text match.text
+          element = find_description_text_node(element)
+          element = remove_span_elements(element)
+          clean_text element.text
         end
 
         private
