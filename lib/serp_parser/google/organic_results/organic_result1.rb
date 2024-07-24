@@ -5,7 +5,31 @@ module SerpParser
         include SerpParser::Google::OrganicResults::Shared
         include SerpParser::Helpers
 
+        # @return [String]
         SELECTOR = "div.g.Ww4FFb"
+
+        # The schema for the organic result.
+        # @return [Hash]
+        SCHEMA = {
+          title: {
+            type: :instance_method
+          },
+          description: {
+            type: :instance_method
+          },
+          url: {
+            type: :instance_method
+          },
+          date: {
+            type: :instance_method
+          },
+          site_links: {
+            type: :collection,
+            parsers: [
+              SerpParser::Google::OrganicResults::SiteLinks::SiteLink1
+            ]
+          }
+        }
 
         # Returns the date of the result
         # @return [Date] iso8601
@@ -19,6 +43,8 @@ module SerpParser
           nil
         end
 
+        # Returns the description of the result
+        # @return [String]
         def description
           element = @doc.css(".VwiC3b")
           element = remove_span_elements(element)

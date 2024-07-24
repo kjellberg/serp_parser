@@ -5,11 +5,35 @@ module SerpParser
         include SerpParser::Google::OrganicResults::Shared
         include SerpParser::Helpers
 
+        # @return [String]
         SELECTOR = "div.Gx5Zad.fP1Qef.xpd.EtOod.pkphOe"
 
         # List of allowed span elements (determined by class name) in the description.
         # @return [Array]
         ALLOWED_DESCRIPTION_ELEMENTS = [ "r0bn4c rQMQod" ]
+
+        # The schema for the organic result.
+        # @return [Hash]
+        SCHEMA = {
+          title: {
+            type: :instance_method
+          },
+          description: {
+            type: :instance_method
+          },
+          url: {
+            type: :instance_method
+          },
+          date: {
+            type: :instance_method
+          },
+          site_links: {
+            type: :collection,
+            parsers: [
+              SerpParser::Google::OrganicResults::SiteLinks::SiteLink2
+            ]
+          }
+        }
 
         # Returns the date of the result
         # @return [Date] iso8601
@@ -23,6 +47,8 @@ module SerpParser
           nil
         end
 
+        # Returns the description of the result
+        # @return [String]
         def description
           element = @doc.css(".BNeawe.s3v9rd.AP7Wnd")
           element = find_description_text_node(element)

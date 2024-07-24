@@ -11,6 +11,8 @@ module SerpParser
         @site_links = args[:site_links]
       end
 
+      # Convert the object to a hash
+      # @return [Hash]
       def to_h
         {
           "title" => title,

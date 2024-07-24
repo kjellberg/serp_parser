@@ -9,6 +9,8 @@ module SerpParser
           @url = args[:url]
         end
 
+        # Convert the object to a hash
+        # @return [Hash]
         def to_h
           {
             "title" => title,
