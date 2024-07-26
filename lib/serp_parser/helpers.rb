@@ -8,6 +8,28 @@ module SerpParser
       text.gsub(/\s+/, " ").strip
     end
 
+    # Extracts a number from a string with a delimiter
+    # @param text [String]
+    # @return [Float]
+    def extract_number(text)
+      text.to_s.match(/(\d+[\.,\ ]?\d*)/)[1]
+    end
+
+    # Normalizes a number from a string
+    # @param string [String]
+    # @param decimals [Boolean]
+    # @return [Float, Integer]
+    def normalize_number(string, decimals: false)
+      fragments = string.to_s.split(/[\.,\ ]/)
+
+      if decimals
+        _decimals = fragments.pop
+        "#{fragments.join}.#{_decimals}".to_f
+      else
+        fragments.join.to_i
+      end
+    end
+
     # Remove span elements from description
     # @param element [Nokogiri::XML::Element]
     # @return [String]

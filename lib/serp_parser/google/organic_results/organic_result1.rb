@@ -28,6 +28,12 @@ module SerpParser
             parsers: [
               SerpParser::Google::OrganicResults::SiteLinks::SiteLink1
             ]
+          },
+          rating: {
+            type: :hash,
+            parsers: [
+              SerpParser::Google::OrganicResults::Ratings::Rating1
+            ]
           }
         }
 

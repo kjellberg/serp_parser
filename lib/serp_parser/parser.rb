@@ -15,7 +15,7 @@ module SerpParser
       @data = {}
       @schema = nil
 
-      execute_schema
+      run_schema
     end
 
     def to_h
@@ -29,15 +29,18 @@ module SerpParser
     # Builds the accessors for the data hash based on the schema.
     #
     # @return [void]
-    def execute_schema
+    def run_schema
       schema.each do |key, values|
-        @data[key] = execute_collection(values[:parsers]) if values[:type] == :collection
+        @data[key] = parse_collection(values[:parsers]) if values[:type] == :collection
         @data[key] = self.send(key) if values[:type] == :instance_method
-        @data[key] = {} if values[:type] == :hash
+        @data[key] = nil if values[:type] == :hash
       end
     end
 
-    def execute_collection(parsers)
+    # Extracts the collection of data from the document.
+    # @param parsers [Array] The parsers to use to extract the data.
+    # @return [Array] The collection of data.
+    def parse_collection(parsers)
       parsers.flat_map do |parser|
         @doc.css(parser::SELECTOR).map.with_index do |element, index|
           parser.new(element).processed_data

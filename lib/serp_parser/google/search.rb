@@ -10,9 +10,13 @@ module SerpParser
           ]
         },
         search_information: {
-          type: :hash
+          type: :instance_method
         }
       }
+
+      def search_information
+        {}
+      end
     end
   end
 end
