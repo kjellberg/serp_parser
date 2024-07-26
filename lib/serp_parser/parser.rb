@@ -31,18 +31,43 @@ module SerpParser
     # @return [void]
     def run_schema
       schema.each do |key, values|
-        @data[key] = parse_collection(values[:parsers]) if values[:type] == :collection
-        @data[key] = self.send(key) if values[:type] == :instance_method
-        @data[key] = nil if values[:type] == :hash
+        if values[:type] == :hash
+          default_values = values[:default] || {}
+          @data[key] = build_merged_hash(values[:parsers], default_values: default_values)
+        elsif values[:type] == :collection
+          @data[key] = build_collection(values[:parsers])
+        else
+          @data[key] = self.send(key)
+        end
       end
     end
 
-    # Extracts the collection of data from the document.
+    # Extracts a collection of data from the document.
     # @param parsers [Array] The parsers to use to extract the data.
     # @return [Array] The collection of data.
-    def parse_collection(parsers)
+    def build_collection(parsers)
+      results = parse_children(parsers)
+      results
+    end
+
+    # Extracts data from the document and merges it into a single hash.
+    # @param parsers [Array] The parsers to use to extract the data.
+    # @param default_values [Hash] The default values to use if no data is found.
+    # @return [Hash] The merged hash of data.
+    def build_merged_hash(parsers, default_values: {})
+      default_values = default_values.transform_keys(&:to_s) # Ensure keys are strings
+
+      result = parse_children(parsers).reduce(default_values) do |acc, result|
+        acc.merge(result)
+      end
+
+      result = result.empty? ? nil : result
+      result
+    end
+
+    def parse_children(parsers)
       parsers.flat_map do |parser|
-        @doc.css(parser::SELECTOR).map.with_index do |element, index|
+        @doc.css(parser::SELECTOR).map do |element|
           parser.new(element).processed_data
         end
       end
