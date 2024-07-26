@@ -47,7 +47,7 @@ module SerpParser
     # @return [Array] The collection of data.
     def build_collection(parsers)
       results = parse_children(parsers)
-      results
+      SerpParser::Collection.new(results)
     end
 
     # Extracts data from the document and merges it into a single hash.

@@ -25,7 +25,11 @@ RSpec.describe SerpParser::Google::Search do
   end
 
   describe "#organic_results" do
-    it "returns an array of organic results" do
+    it "returns a collection object" do
+      expect(parser.organic_results).to be_an_instance_of(SerpParser::Collection)
+    end
+
+    it "returns organic results" do
       expect(parser.organic_results).to all(be_an_instance_of(SerpParser::Models::OrganicResult))
     end
 
