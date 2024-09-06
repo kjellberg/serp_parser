@@ -66,7 +66,12 @@ module SerpParser
     end
 
     def parse_children(parsers)
-      parsers.flat_map do |parser|
+      # Combine all selectors from parsers into a single CSS selector string
+      all_selectors = parsers.map { |parser| parser::SELECTOR }.join(", ")
+      # Get all elements matching the combined selector, preserving their order in the document
+      all_elements = @doc.css(all_selectors)
+
+      results = parsers.flat_map do |parser|
         @doc.css(parser::SELECTOR).map do |element|
           if defined?(parser::REQUIRED_CHILDREN) && parser::REQUIRED_CHILDREN.any?
             # Check if the element contains the required child elements (direct children only)
@@ -76,9 +81,21 @@ module SerpParser
             next unless required_children_exist
           end
 
-          parser.new(element).processed_data
+          # Store both the element and its processed data
+          {
+            element: element,
+            data: parser.new(element).processed_data
+          }
         end.compact  # Remove nil values resulting from the `next` statement
       end
+
+      # Sort all results based on their index in all_elements
+      # This ensures that elements are ordered according to their position in the original document
+      # and not just by the order they were processed.
+      sorted_results = results.sort_by { |result| all_elements.index(result[:element]) }
+
+      # Return only the processed data in the sorted order
+      sorted_results.map { |result| result[:data] }
     end
 
     def schema
