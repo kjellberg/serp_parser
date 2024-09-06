@@ -1,3 +1,5 @@
+require "uri"
+
 module SerpParser
   module Models
     class OrganicResult
@@ -12,12 +14,19 @@ module SerpParser
         @site_links = args[:site_links]
       end
 
+      # Parse domain from url
+      def domain
+        _domain = URI.parse(url).host
+        _domain.gsub(/www\./, '')
+      end
+
       # Convert the object to a hash
       # @return [Hash]
       def to_h
         {
           "title" => title,
           "description" => description,
+          "domain" => domain,
           "url" => url,
           "date" => date,
           "rating" => rating,
