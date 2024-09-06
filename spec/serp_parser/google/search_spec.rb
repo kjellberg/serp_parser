@@ -46,5 +46,19 @@ RSpec.describe SerpParser::Google::Search do
         expect(parser.organic_results.first.site_links.size).to eq(4)
       end
     end
+
+    describe "#position" do
+      it "returns position of first organic result" do
+        expect(parser.organic_results.first.position).to eq(1)
+      end
+
+      it "returns position of last organic result" do
+        expect(parser.organic_results.last.position).to eq(7)
+      end
+
+      it "returns position of 5th organic result" do
+        expect(parser.organic_results[4].position).to eq(5)
+      end
+    end
   end
 end
