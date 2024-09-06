@@ -3,6 +3,7 @@ module SerpParser
     module OrganicResults
       class SiteLink
         attr_reader :title, :url
+        attr_accessor :position
 
         def initialize(**args)
           @title = args[:title]
@@ -13,6 +14,7 @@ module SerpParser
         # @return [Hash]
         def to_h
           {
+            "position" => position,
             "title" => title,
             "url" => url
           }

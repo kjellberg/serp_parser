@@ -8,18 +8,22 @@
   "rating": null,
   "site_links": [
     {
+      "position": 1,
       "title": "Välj matkasse",
       "url": "https://www.linasmatkasse.se/registrering"
     },
     {
+      "position": 2,
       "title": "På menyn",
       "url": "https://www.linasmatkasse.se/pa-menyn"
     },
     {
+      "position": 3,
       "title": "Kontakta kundtjänst",
       "url": "https://www.linasmatkasse.se/kontaktuppgifter"
     },
     {
+      "position": 4,
       "title": "Så funkar det",
       "url": "https://www.linasmatkasse.se/sa-funkar-det"
     }
