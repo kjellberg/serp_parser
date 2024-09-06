@@ -7,7 +7,7 @@ module SerpParser
 
         # @return [String]
         SELECTOR = "div.Gx5Zad.xpd.EtOod.pkphOe"
-        REQUIRED_CHILDREN = ["span div.BNeawe span.rQMQod.Xb5VRe"]
+        REQUIRED_CHILDREN = [".kCrYT div.BNeawe span.rQMQod.Xb5VRe"]
 
         # List of allowed span elements (determined by class name) in the description.
         # @return [Array]
@@ -43,7 +43,7 @@ module SerpParser
         # @return [String]
         def title
           element = @doc.css("span.rQMQod.Xb5VRe")
-          clean_text element.text
+          clean_text element&.text
         end
 
         # Returns the URL of the result
@@ -59,7 +59,7 @@ module SerpParser
           element = @doc.css(".PqksIc.nRlVm")
           return if element.nil?
 
-          clean_text element.text
+          clean_text element&.text
         end
 
         private

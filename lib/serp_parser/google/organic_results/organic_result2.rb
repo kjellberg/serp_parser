@@ -7,7 +7,7 @@ module SerpParser
 
         # @return [String]
         SELECTOR = "div.Gx5Zad.xpd.EtOod.pkphOe"
-        REQUIRED_CHILDREN = ["h3"]
+        REQUIRED_CHILDREN = [".egMi0.kCrYT"]
 
         # List of allowed span elements (determined by class name) in the description.
         # @return [Array]
