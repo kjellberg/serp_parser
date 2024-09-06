@@ -7,6 +7,7 @@ module SerpParser
 
         # @return [String]
         SELECTOR = "div.g.Ww4FFb"
+        REQUIRED_CHILDREN = ["h3"]
 
         # The schema for the organic result.
         # @return [Hash]

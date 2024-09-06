@@ -68,8 +68,16 @@ module SerpParser
     def parse_children(parsers)
       parsers.flat_map do |parser|
         @doc.css(parser::SELECTOR).map do |element|
+          if defined?(parser::REQUIRED_CHILDREN) && parser::REQUIRED_CHILDREN.any?
+            # Check if the element contains the required child elements (direct children only)
+            required_children_exist = parser::REQUIRED_CHILDREN.all? do |child_selector|
+              !element.children.css(child_selector).empty?
+            end
+            next unless required_children_exist
+          end
+
           parser.new(element).processed_data
-        end
+        end.compact  # Remove nil values resulting from the `next` statement
       end
     end
 

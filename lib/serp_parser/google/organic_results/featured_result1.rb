@@ -1,13 +1,13 @@
 module SerpParser
   module Google
     module OrganicResults
-      class OrganicResult2 < SerpParser::Google::Search
+      class FeaturedResult1 < SerpParser::Google::Search
         include SerpParser::Google::OrganicResults::Shared
         include SerpParser::Helpers
 
         # @return [String]
         SELECTOR = "div.Gx5Zad.xpd.EtOod.pkphOe"
-        REQUIRED_CHILDREN = ["h3"]
+        REQUIRED_CHILDREN = ["span div.BNeawe span.rQMQod.Xb5VRe"]
 
         # List of allowed span elements (determined by class name) in the description.
         # @return [Array]
@@ -24,10 +24,7 @@ module SerpParser
           },
           url: {
             type: :instance_method
-          },
-          date: {
-            type: :instance_method
-          },
+          }, 
           site_links: {
             type: :collection,
             parsers: [
@@ -42,24 +39,24 @@ module SerpParser
           }
         }
 
-        # Returns the date of the result
-        # @return [Date] iso8601
-        def date
-          element = @doc.css("div.BNeawe.s3v9rd.AP7Wnd span.r0bn4c.rQMQod")
-          return nil unless element.any?
-
-          text = element.text
-          Date.parse(text).iso8601
-        rescue
-          nil
+        # Returns the title of the result
+        # @return [String]
+        def title
+          element = @doc.css("span.rQMQod.Xb5VRe")
+          clean_text element.text
         end
 
+        # Returns the URL of the result
+        # @return [String]
+        def url
+          element = @doc.css(".kCrYT a")
+          clean_google_url element.first["href"]
+        end
+        
         # Returns the description of the result
         # @return [String]
         def description
-          element = @doc.css(".BNeawe.s3v9rd.AP7Wnd")
-          element = find_description_text_node(element)
-          element = remove_span_elements(element)
+          element = @doc.css(".PqksIc.nRlVm")
           return if element.nil?
 
           clean_text element.text

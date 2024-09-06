@@ -6,7 +6,9 @@ module SerpParser
         organic_results: {
           type: :collection,
           parsers: [
-            SerpParser::Google::OrganicResults::OrganicResult1
+            SerpParser::Google::OrganicResults::FeaturedResult1,
+            SerpParser::Google::OrganicResults::OrganicResult1,
+            SerpParser::Google::OrganicResults::OrganicResult2,
           ]
         },
         search_information: {
