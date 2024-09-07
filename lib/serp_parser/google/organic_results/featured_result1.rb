@@ -7,7 +7,7 @@ module SerpParser
 
         # @return [String]
         SELECTOR = "div.Gx5Zad.xpd.EtOod.pkphOe"
-        REQUIRED_CHILDREN = [".kCrYT div.BNeawe span.rQMQod.Xb5VRe"]
+        REQUIRED_CHILDREN = [ ".kCrYT div.BNeawe span.rQMQod.Xb5VRe" ]
 
         # List of allowed span elements (determined by class name) in the description.
         # @return [Array]
@@ -24,7 +24,7 @@ module SerpParser
           },
           url: {
             type: :instance_method
-          }, 
+          },
           site_links: {
             type: :collection,
             parsers: [
@@ -52,7 +52,7 @@ module SerpParser
           element = @doc.css(".kCrYT a")
           clean_google_url element.first["href"]
         end
-        
+
         # Returns the description of the result
         # @return [String]
         def description

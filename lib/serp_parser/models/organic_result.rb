@@ -14,7 +14,7 @@ module SerpParser
         @rating = args[:rating]
         @site_links = args[:site_links]
       end
- 
+
       # Parse domain from url
       def domain
         _domain = URI.parse(url).host

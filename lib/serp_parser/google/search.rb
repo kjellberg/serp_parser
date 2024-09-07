@@ -8,7 +8,7 @@ module SerpParser
           parsers: [
             SerpParser::Google::OrganicResults::FeaturedResult1,
             SerpParser::Google::OrganicResults::OrganicResult1,
-            SerpParser::Google::OrganicResults::OrganicResult2,
+            SerpParser::Google::OrganicResults::OrganicResult2
           ]
         },
         search_information: {
