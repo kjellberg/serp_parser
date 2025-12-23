@@ -48,10 +48,20 @@ module SerpParser
     end
 
     # Extract the URL from a Google redirect URL
+    # Handles both "/url?q=" and "/url?sa=...&url=" formats.
     # @param url [String]
-    # @return [String]
+    # @return [String, nil]
     def clean_google_url(url)
-      url.start_with?("/url?q=") ? url.match(%r{/url\?q=(.*?)&})[1] : url
+      return if url.nil?
+      return url unless url.start_with?("/url?")
+
+      begin
+        query = URI.parse(url).query
+        params = URI.decode_www_form(query.to_s).to_h
+        params["q"] || params["url"] || url
+      rescue
+        url
+      end
     end
   end
 end

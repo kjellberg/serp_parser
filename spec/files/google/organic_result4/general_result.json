@@ -1,0 +1,46 @@
+{
+  "title": "Matkasse - Spara upp till 1099 kr och få gratis snacks i 3 månader",
+  "description": "Laga enkelt goda middagar - varje dag. Med en matkasse från HelloFresh kan du skräddarsy din veckomeny på ett kick och välja maträtter efter dina preferenser.",
+  "url": "https://www.hellofresh.se/matkasse",
+  "domain": "hellofresh.se",
+  "position": null,
+  "date": null,
+  "rating": null,
+  "site_links": [
+    {
+      "position": 1,
+      "title": "Matkasse en person",
+      "url": "https://www.hellofresh.se/matkasse/en-person"
+    },
+    {
+      "position": 2,
+      "title": "Matkasse för två personer",
+      "url": "https://www.hellofresh.se/matkasse/for-tva"
+    },
+    {
+      "position": 3,
+      "title": "Vegetarisk matkasse",
+      "url": "https://www.hellofresh.se/matkasse/vegetarisk"
+    },
+    {
+      "position": 4,
+      "title": "Flexitarian matkasse",
+      "url": "https://www.hellofresh.se/matkasse/flexitarian"
+    },
+    {
+      "position": 5,
+      "title": "Matkasse student",
+      "url": "https://www.hellofresh.se/matkasse/student"
+    },
+    {
+      "position": 6,
+      "title": "Veckans matkasse",
+      "url": "https://www.hellofresh.se/matkasse/veckans"
+    },
+    {
+      "position": 7,
+      "title": "Billig matkasse",
+      "url": "https://www.hellofresh.se/matkasse/billig"
+    }
+  ]
+}
