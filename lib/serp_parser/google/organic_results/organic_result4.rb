@@ -4,7 +4,7 @@ module SerpParser
       class OrganicResult4 < SerpParser::Google::Search
         include SerpParser::Helpers
 
-        # Matches the card-style organic result with sitelinks list
+        # Card-style organic result that may include sitelinks and/or rating
         SELECTOR = "div.Ww4FFb.vt6azd.xpd.EtOod.pkphOe"
         REQUIRED_CHILDREN = [ ".F0FGWb" ]
 
@@ -28,7 +28,10 @@ module SerpParser
             ]
           },
           rating: {
-            type: :instance_method
+            type: :hash,
+            parsers: [
+              SerpParser::Google::OrganicResults::Ratings::Rating3
+            ]
           }
         }
 
@@ -43,17 +46,15 @@ module SerpParser
         end
 
         def url
-          element = @doc.at_css("a.rTyHce")
-          return unless element
+          link = @doc.at_css("a.rTyHce")
+          return unless link
 
-          clean_google_url(element["href"])
+          href = link["href"]
+          href = link["ping"].to_s.split(" ").first if href&.start_with?("javascript")
+          clean_google_url(href)
         end
 
         def date
-          nil
-        end
-
-        def rating
           nil
         end
 
@@ -64,5 +65,3 @@ module SerpParser
     end
   end
 end
-
-

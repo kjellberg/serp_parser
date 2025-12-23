@@ -5,7 +5,9 @@ module SerpParser
     # @param text [String]
     # @return [String]
     def clean_text(text)
-      text.gsub(/\s+/, " ").strip
+      return "" if text.nil?
+      # Normalize non-breaking spaces to regular spaces before collapsing
+      text.tr("\u00A0", " ").gsub(/\s+/, " ").strip
     end
 
     # Extracts a number from a string with a delimiter
