@@ -1,6 +1,6 @@
 module SerpParser
   module Models
-    class RecommendedSearch
+    class RelatedSearch
       attr_reader :query
 
       def initialize(query:)

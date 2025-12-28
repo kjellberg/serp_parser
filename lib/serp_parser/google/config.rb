@@ -64,11 +64,17 @@ module SerpParser
             end
           end
 
-          component :recommended_search do
+          component :related_search do
             variant "filter_pill", meta: { first_seen: "2025-12-23" } do
               match "div.T3FoJb[role=\"listitem\"] a"
-              model SerpParser::Models::RecommendedSearch
+              model SerpParser::Models::RelatedSearch
               url :query, attribute: "href", processors: [ :extract_query_from_search_url ]
+            end
+
+            variant "question_link", meta: { first_seen: "2025-12-23" } do
+              match "a.ocRFx.aXYP2e.DxAvsd.sG4dYe"
+              model SerpParser::Models::RelatedSearch
+              text :query, "span.dg6jd.JGD2rd", processors: [ :clean_text, :downcase ]
             end
           end
 
@@ -118,10 +124,15 @@ module SerpParser
             end
           end
 
-          element :recommended_searches do
+          element :related_searches do
             variant "filter_pills", meta: { first_seen: "2025-12-23" } do
               container "div.fBctee"
-              has_many :recommended_searches, component: :recommended_search
+              has_many :related_searches, component: :related_search
+            end
+
+            variant "questions", meta: { first_seen: "2025-12-23" } do
+              container "div.Wt5Tfe"
+              has_many :related_searches, component: :related_search
             end
           end
         end

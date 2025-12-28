@@ -159,6 +159,8 @@ module SerpParser
             extract_title_with_fallback(element)
           when :extract_query_from_search_url
             Processors.extract_query_from_search_url(value)
+          when :downcase
+            value.is_a?(String) ? value.downcase : value
           else
             value
           end
@@ -244,8 +246,8 @@ module SerpParser
             # For sitelinks, need at least title or url
             elsif model_class == SerpParser::Models::OrganicResults::SiteLink
               return nil unless data[:title] || data[:url]
-            # For recommended searches, need a query
-            elsif model_class == SerpParser::Models::RecommendedSearch
+            # For related searches, need a query
+            elsif model_class == SerpParser::Models::RelatedSearch
               return nil unless data[:query] && !data[:query].to_s.strip.empty?
             end
 

@@ -141,5 +141,33 @@ module SerpParser
         nil
       end
     end
+
+    # Extract query from text content, removing HTML tags and normalizing
+    # @param text [String] Text content that may contain HTML
+    # @return [String, nil] Cleaned and downcased query string
+    def self.extract_query_from_text(text)
+      return nil if text.nil?
+      # Clean text, remove extra whitespace, and downcase
+      clean_text(text).downcase
+    end
+
+    # Extract query from URL or fallback to text
+    # Used when URL might be javascript:void(0) or a search URL
+    # @param url [String] The href value
+    # @param element [Nokogiri::XML::Element] The element to extract text from if URL fails
+    # @return [String, nil] Extracted and normalized query
+    def self.extract_query_from_url_or_text(url, element = nil)
+      # Try to extract from URL first
+      query = extract_query_from_search_url(url)
+      return query if query
+
+      # Fallback to text content if URL didn't yield a result
+      if element
+        text = element.at_css("span.dg6jd.JGD2rd")&.text || element.text
+        extract_query_from_text(text) if text
+      else
+        nil
+      end
+    end
   end
 end

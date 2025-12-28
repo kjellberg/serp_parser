@@ -19,13 +19,21 @@ module SerpParser
         SerpParser::Collection.new(models)
       end
 
-      def recommended_searches
-        results = Parsers::Element.find_all(@doc, :recommended_searches, @registry)
-        # Extract recommended search models from results
+      def related_searches
+        results = Parsers::Element.find_all(@doc, :related_searches, @registry)
+        # Extract related search models from results (combines both filter pills and questions)
         searches = []
+        seen_queries = {}
         results.each do |data|
-          if data[:recommended_searches].is_a?(Array)
-            searches.concat(data[:recommended_searches])
+          if data[:related_searches].is_a?(Array)
+            data[:related_searches].each do |search|
+              query = search.query
+              # Only add if we haven't seen this query before
+              unless seen_queries.key?(query)
+                seen_queries[query] = true
+                searches << search
+              end
+            end
           end
         end
         SerpParser::Collection.new(searches)
@@ -38,7 +46,7 @@ module SerpParser
       def to_h
         {
           organic_results: organic_results.map(&:to_h),
-          recommended_searches: recommended_searches.map(&:to_h)
+          related_searches: related_searches.map(&:to_h)
         }
       end
     end
