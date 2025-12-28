@@ -37,34 +37,18 @@ RSpec.describe SerpParser::Google::Search do
       expect(parser.organic_results.size).to eq(10)
     end
 
-      #     it "returns featured post as first organic result" do
-      #       expect(parser.organic_results.first.title).to eq("Linas Matkasse: Goda, hälsosamma matkassar med 30% rabatt!")
-      #       expect(parser.organic_results.first.description).to match("Nystart för hela familjen - med Linas Matkasse. ✓ Färska och lokala råvaror i säsong ✓ 80 sunda, goda recept i veckan ✓ Ingen bindningstid. Beställ matkasse.")
-      #       expect(parser.organic_results.first.url).to eq("https://www.linasmatkasse.se/")
-      #     end
+    describe "#position" do
+      it "returns position of first organic result" do
+        expect(parser.organic_results.first.position).to eq(1)
+      end
 
-      #     describe "#site_links of first result" do
-      #       it "returns an array of site links" do
-      #         expect(parser.organic_results.first.site_links).to all(be_an_instance_of(SerpParser::Models::OrganicResults::SiteLink))
-      #       end
+      it "returns position of last organic result" do
+        expect(parser.organic_results.last.position).to eq(10)
+      end
 
-      #       it "returns 4 site links" do
-      #         expect(parser.organic_results.first.site_links.size).to eq(4)
-      #       end
-      #     end
-
-      #     describe "#position" do
-      #       it "returns position of first organic result" do
-      #         expect(parser.organic_results.first.position).to eq(1)
-      #       end
-
-      #       it "returns position of last organic result" do
-      #         expect(parser.organic_results.last.position).to eq(100)
-      #       end
-
-      #       it "returns position of 10th organic result" do
-      #         expect(parser.organic_results[9].position).to eq(10)
-      #       end
-      #     end
+      it "returns position of 10th organic result" do
+        expect(parser.organic_results[9].position).to eq(10)
+      end
     end
+  end
 end

@@ -53,18 +53,18 @@ RSpec.describe SerpParser::Google::Search do
     #       end
     #     end
 
-    #     describe "#position" do
-    #       it "returns position of first organic result" do
-    #         expect(parser.organic_results.first.position).to eq(1)
-    #       end
+        describe "#position" do
+          it "returns position of first organic result" do
+            expect(parser.organic_results.first.position).to eq(1)
+          end
 
-    #       it "returns position of last organic result" do
-    #         expect(parser.organic_results.last.position).to eq(100)
-    #       end
+          it "returns position of last organic result" do
+            expect(parser.organic_results.last.position).to eq(10)
+          end
 
-    #       it "returns position of 10th organic result" do
-    #         expect(parser.organic_results[9].position).to eq(10)
-    #       end
-    #     end
+          it "returns position of 10th organic result" do
+            expect(parser.organic_results[9].position).to eq(10)
+          end
+        end
   end
 end
