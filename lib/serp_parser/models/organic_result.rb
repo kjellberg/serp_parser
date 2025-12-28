@@ -31,7 +31,7 @@ module SerpParser
           "domain" => domain,
           "url" => url,
           "date" => date,
-          "rating" => rating.respond_to?(:to_h) ? (rating.to_h || nil) : rating,
+          "rating" => (rating && rating.respond_to?(:to_h) && !rating.is_a?(NilClass)) ? (rating.to_h || nil) : rating,
           "site_links" => site_links ? site_links.map(&:to_h) : []
         }
       end

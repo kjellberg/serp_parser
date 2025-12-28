@@ -20,8 +20,39 @@
       "domain": "matkasse.com",
       "url": "https://www.matkasse.com/se/middagsfrid/",
       "date": null,
-      "rating": {},
-      "site_links": []
+      "rating": null,
+      "site_links": [
+        {
+          "position": null,
+          "title": "Vårt betyg",
+          "url": "javascript:void(0)"
+        },
+        {
+          "position": null,
+          "title": "Varför Middagsfrid?",
+          "url": "javascript:void(0)"
+        },
+        {
+          "position": null,
+          "title": "Hur beställer jag från...",
+          "url": "javascript:void(0)"
+        },
+        {
+          "position": null,
+          "title": "Matkassar från Middagsfrid",
+          "url": "javascript:void(0)"
+        },
+        {
+          "position": null,
+          "title": "Hur mycket kostar det?",
+          "url": "javascript:void(0)"
+        },
+        {
+          "position": null,
+          "title": "Leveransalternativ",
+          "url": "javascript:void(0)"
+        }
+      ]
     },
     {
       "position": 3,
@@ -30,7 +61,7 @@
       "domain": "letsdeal.se",
       "url": "https://letsdeal.se/deal/74tugty8ntc8/rabattkod-middagsfrid",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -40,7 +71,7 @@
       "domain": "hittamatkasse.nu",
       "url": "https://www.hittamatkasse.nu/butiker/middagsfrid",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -50,7 +81,7 @@
       "domain": "klassensval.se",
       "url": "https://klassensval.se/studentrabatt/Middagsfrid/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -60,7 +91,7 @@
       "domain": "hittamatkassen.se",
       "url": "https://hittamatkassen.se/middagsfrid/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -70,7 +101,7 @@
       "domain": "gronakassen.se",
       "url": "https://gronakassen.se/recensioner/middagsfrid/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -80,7 +111,7 @@
       "domain": "mellisdags.se",
       "url": "https://mellisdags.se/recensioner/middagsfrid/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -90,7 +121,7 @@
       "domain": "rabatteria.se",
       "url": "https://rabatteria.se/rabattkoder/middagsfrid/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -100,7 +131,7 @@
       "domain": "hemleveransguiden.se",
       "url": "https://hemleveransguiden.se/butik/middagsfrid/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     }
   ]

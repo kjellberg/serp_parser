@@ -75,7 +75,7 @@ module SerpParser
               url :url, "a", attribute: "href"
               date :date, "span.LEwnzc span"
               has_one :rating
-              has_many :sitelinks
+              has_many :site_links, component: :sitelinks
             end
 
             variant "card", meta: { first_seen: "2024-09-06" } do
@@ -86,7 +86,7 @@ module SerpParser
               url :url, ".kCrYT a", attribute: "href"
               date :date, "div.BNeawe.s3v9rd.AP7Wnd span.r0bn4c.rQMQod"
               has_one :rating
-              has_many :sitelinks
+              has_many :site_links, component: :sitelinks
             end
 
             variant "featured", meta: { first_seen: "2024-09-06" } do
@@ -96,7 +96,7 @@ module SerpParser
               text :description, ".PqksIc.nRlVm"
               url :url, ".kCrYT a", attribute: "href"
               has_one :rating
-              has_many :sitelinks
+              has_many :site_links, component: :sitelinks
             end
 
             variant "modern_card", meta: { first_seen: "2025-12-23" } do
@@ -106,7 +106,7 @@ module SerpParser
               text :description, ".VwiC3b"
               url :url, "a.rTyHce", attribute: "href", processors: [ :extract_from_ping_if_needed ]
               has_one :rating
-              has_many :sitelinks
+              has_many :site_links, component: :sitelinks
             end
           end
         end

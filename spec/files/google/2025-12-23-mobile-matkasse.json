@@ -7,8 +7,44 @@
       "domain": "hellofresh.se",
       "url": "https://www.hellofresh.se/matkasse",
       "date": null,
-      "rating": {},
-      "site_links": []
+      "rating": null,
+      "site_links": [
+        {
+          "position": null,
+          "title": "Matkasse en person",
+          "url": "https://www.hellofresh.se/matkasse/en-person"
+        },
+        {
+          "position": null,
+          "title": "Matkasse för två personer",
+          "url": "https://www.hellofresh.se/matkasse/for-tva"
+        },
+        {
+          "position": null,
+          "title": "Vegetarisk matkasse",
+          "url": "https://www.hellofresh.se/matkasse/vegetarisk"
+        },
+        {
+          "position": null,
+          "title": "Flexitarian matkasse",
+          "url": "https://www.hellofresh.se/matkasse/flexitarian"
+        },
+        {
+          "position": null,
+          "title": "Matkasse student",
+          "url": "https://www.hellofresh.se/matkasse/student"
+        },
+        {
+          "position": null,
+          "title": "Veckans matkasse",
+          "url": "https://www.hellofresh.se/matkasse/veckans"
+        },
+        {
+          "position": null,
+          "title": "Billig matkasse",
+          "url": "https://www.hellofresh.se/matkasse/billig"
+        }
+      ]
     },
     {
       "position": 2,
@@ -17,8 +53,44 @@
       "domain": "linasmatkasse.se",
       "url": "https://www.linasmatkasse.se/",
       "date": null,
-      "rating": {},
-      "site_links": []
+      "rating": null,
+      "site_links": [
+        {
+          "position": null,
+          "title": "På menyn",
+          "url": "https://www.linasmatkasse.se/pa-menyn"
+        },
+        {
+          "position": null,
+          "title": "Beställ matkasse",
+          "url": "https://www.linasmatkasse.se/registrering"
+        },
+        {
+          "position": null,
+          "title": "Hållbarhet på Linas Matkasse",
+          "url": "https://www.linasmatkasse.se/hallbarhet"
+        },
+        {
+          "position": null,
+          "title": "Logga in",
+          "url": "https://www.linasmatkasse.se/logga-in"
+        },
+        {
+          "position": null,
+          "title": "Kundservice",
+          "url": "https://www.linasmatkasse.se/kontaktuppgifter"
+        },
+        {
+          "position": null,
+          "title": "Snabbt & lättlagat",
+          "url": "https://www.linasmatkasse.se/matkasse/snabbtochlattlagat"
+        },
+        {
+          "position": null,
+          "title": "Leverans",
+          "url": "https://www.linasmatkasse.se/leverans"
+        }
+      ]
     },
     {
       "position": 3,
@@ -27,8 +99,34 @@
       "domain": "ica.se",
       "url": "https://www.ica.se/icas-matkasse/",
       "date": null,
-      "rating": {},
-      "site_links": []
+      "rating": null,
+      "site_links": [
+        {
+          "position": null,
+          "title": "Mer om icas matkasse",
+          "url": "https://www.ica.se/icas-matkasse/om-icas-matkasse/"
+        },
+        {
+          "position": null,
+          "title": "Familjens Favoriter",
+          "url": "https://www.ica.se/icas-matkasse/familjens-favoriter/"
+        },
+        {
+          "position": null,
+          "title": "Bra att ha hemma",
+          "url": "https://www.ica.se/icas-matkasse/bra-att-ha-hemma/"
+        },
+        {
+          "position": null,
+          "title": "Familjens Favoriter laktosfri",
+          "url": "https://www.ica.se/icas-matkasse/familjens-favoriter-laktosfri/"
+        },
+        {
+          "position": null,
+          "title": "Familjens Favoriter vego",
+          "url": "https://www.ica.se/icas-matkasse/familjens-favoriter-vego/"
+        }
+      ]
     },
     {
       "position": 4,
@@ -37,7 +135,7 @@
       "domain": "svartaladan.se",
       "url": "https://svartaladan.se/matkasse/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -47,7 +145,7 @@
       "domain": "matkasse.com",
       "url": "https://www.matkasse.com/se/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -57,7 +155,7 @@
       "domain": "citygross.se",
       "url": "https://www.citygross.se/matkassar",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -67,7 +165,7 @@
       "domain": "coop.se",
       "url": "https://www.coop.se/handla/matkasse/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -77,7 +175,7 @@
       "domain": "middagskassen.se",
       "url": "https://middagskassen.se/stora-hushall/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -87,7 +185,7 @@
       "domain": "arstiderna.com",
       "url": "https://www.arstiderna.com/hitta-matkasse",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     },
     {
@@ -97,7 +195,7 @@
       "domain": "hitta-matkasse.se",
       "url": "https://hitta-matkasse.se/",
       "date": null,
-      "rating": {},
+      "rating": null,
       "site_links": []
     }
   ]
