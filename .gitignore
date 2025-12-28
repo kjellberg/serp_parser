@@ -12,3 +12,6 @@ Gemfile.lock
 # rspec failure tracking
 .rspec_status
 *.gem
+
+# actual json files
+spec/files/google/*.actual.json

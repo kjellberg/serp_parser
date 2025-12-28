@@ -22,18 +22,21 @@ module SerpParser
           component :rating do
             variant "standard", meta: { first_seen: "2024-09-06" } do
               match "div.smukrd"
+              model SerpParser::Models::OrganicResults::Rating
               text :score, ".", processors: [ :text, :extract_score_from_text ]
               text :number_of_ratings, ".", processors: [ :text, :extract_count_from_text ]
             end
 
             variant "inline_spans", meta: { first_seen: "2024-09-06" } do
               match "div.BNeawe.s3v9rd.AP7Wnd span.r0bn4c.rQMQod.tP9Zud"
+              model SerpParser::Models::OrganicResults::Rating
               text :score, ".", processors: [ :text, :extract_rating_slices, :take_first, :normalize_number_with_decimals ]
               text :number_of_ratings, ".", processors: [ :text, :extract_rating_slices, :take_second, :normalize_number ]
             end
 
             variant "simple_rating", meta: { first_seen: "2025-12-23" } do
               match ".yi40Hd"
+              model SerpParser::Models::OrganicResults::Rating
               text :score, ".", processors: [ :text, :extract_number, :normalize_number_with_decimals ]
             end
           end
@@ -41,18 +44,21 @@ module SerpParser
           component :sitelinks do
             variant "div_links", meta: { first_seen: "2024-09-06" } do
               match "div.HiHjCd a"
+              model SerpParser::Models::OrganicResults::SiteLink
               text :title
               url :url, attribute: "href"
             end
 
             variant "inline_links", meta: { first_seen: "2024-09-06" } do
               match ".BNeawe.s3v9rd.AP7Wnd .BNeawe a"
+              model SerpParser::Models::OrganicResults::SiteLink
               text :title
               url :url, attribute: "href"
             end
 
             variant "card_links", meta: { first_seen: "2025-12-23" } do
               match ".KTAFWb a.dM1Yyd"
+              model SerpParser::Models::OrganicResults::SiteLink
               text :title, ".", processors: [ :extract_title_with_fallback, :clean_text ]
               url :url, attribute: "href"
             end

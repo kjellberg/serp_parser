@@ -30,7 +30,8 @@ module SerpParser
           components: {},
           container: nil,
           match: nil,
-          required_children: []
+          required_children: [],
+          model_class: nil
         }
         instance_eval(&block) if block
         variant_def = @current_variant.dup
@@ -97,6 +98,10 @@ module SerpParser
 
       def required_children(selectors)
         @current_variant[:required_children] = Array(selectors)
+      end
+
+      def model(model_class)
+        @current_variant[:model_class] = model_class
       end
     end
 

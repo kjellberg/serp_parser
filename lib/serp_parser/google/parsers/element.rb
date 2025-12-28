@@ -230,17 +230,22 @@ module SerpParser
             data[field_name] = value unless value.nil?
           end
 
-          # Return appropriate model based on component type
-          if variant[:name].to_s.include?("rating")
-            score = data[:score]
-            count = data[:number_of_ratings]
-            result = { "max_score" => 5 }
-            result["score"] = score if score
-            result["number_of_ratings"] = count if count
-            result.empty? ? nil : result
-          elsif variant[:name].to_s.include?("sitelink")
-            SerpParser::Models::OrganicResults::SiteLink.new(**data) if data[:title] || data[:url]
+          # Use configured model class if available
+          if variant[:model_class]
+            model_class = variant[:model_class]
+
+            # Check if we have minimum required data before instantiating
+            # For ratings, need at least score or number_of_ratings
+            if model_class == SerpParser::Models::OrganicResults::Rating
+              return nil unless data[:score] || data[:number_of_ratings]
+            # For sitelinks, need at least title or url
+            elsif model_class == SerpParser::Models::OrganicResults::SiteLink
+              return nil unless data[:title] || data[:url]
+            end
+
+            model_class.new(**data)
           else
+            # Fallback: return raw data if no model configured
             data
           end
         end
