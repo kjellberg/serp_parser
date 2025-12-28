@@ -32,7 +32,8 @@ module SerpParser
           all_elements = doc.css(combined_selector)
           results = []
 
-          all_elements.each do |element|
+          # Process elements in document order, preserving their index
+          all_elements.each_with_index do |element, index|
             # Try each variant to see which one matches this element
             matched_data = nil
             variants.each do |variant|
@@ -51,11 +52,11 @@ module SerpParser
               end
             end
 
-            results << { element: element, data: matched_data } if matched_data
+            results << { index: index, data: matched_data } if matched_data
           end
 
-          # Sort by document order
-          sorted_results = results.sort_by { |r| all_elements.index(r[:element]) }
+          # Sort by document order (using captured index instead of expensive index() lookup)
+          sorted_results = results.sort_by { |r| r[:index] }
           sorted_results.map { |r| r[:data] }
         end
 
