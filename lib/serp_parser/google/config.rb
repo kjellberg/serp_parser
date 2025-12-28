@@ -64,6 +64,14 @@ module SerpParser
             end
           end
 
+          component :recommended_search do
+            variant "filter_pill", meta: { first_seen: "2025-12-23" } do
+              match "div.T3FoJb[role=\"listitem\"] a"
+              model SerpParser::Models::RecommendedSearch
+              url :query, attribute: "href", processors: [ :extract_query_from_search_url ]
+            end
+          end
+
           # --- TOP LEVEL ELEMENTS ---
 
           element :organic_result do
@@ -107,6 +115,13 @@ module SerpParser
               url :url, "a.rTyHce", attribute: "href", processors: [ :extract_from_ping_if_needed ]
               has_one :rating
               has_many :site_links, component: :sitelinks
+            end
+          end
+
+          element :recommended_searches do
+            variant "filter_pills", meta: { first_seen: "2025-12-23" } do
+              container "div.fBctee"
+              has_many :recommended_searches, component: :recommended_search
             end
           end
         end

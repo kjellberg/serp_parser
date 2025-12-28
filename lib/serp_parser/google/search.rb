@@ -19,13 +19,26 @@ module SerpParser
         SerpParser::Collection.new(models)
       end
 
+      def recommended_searches
+        results = Parsers::Element.find_all(@doc, :recommended_searches, @registry)
+        # Extract recommended search models from results
+        searches = []
+        results.each do |data|
+          if data[:recommended_searches].is_a?(Array)
+            searches.concat(data[:recommended_searches])
+          end
+        end
+        SerpParser::Collection.new(searches)
+      end
+
       def search_information
         {}
       end
 
       def to_h
         {
-          organic_results: organic_results.map(&:to_h)
+          organic_results: organic_results.map(&:to_h),
+          recommended_searches: recommended_searches.map(&:to_h)
         }
       end
     end

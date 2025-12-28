@@ -157,6 +157,8 @@ module SerpParser
             value.is_a?(Array) && value.length > 1 ? value[1] : nil
           when :extract_title_with_fallback
             extract_title_with_fallback(element)
+          when :extract_query_from_search_url
+            Processors.extract_query_from_search_url(value)
           else
             value
           end
@@ -242,6 +244,9 @@ module SerpParser
             # For sitelinks, need at least title or url
             elsif model_class == SerpParser::Models::OrganicResults::SiteLink
               return nil unless data[:title] || data[:url]
+            # For recommended searches, need a query
+            elsif model_class == SerpParser::Models::RecommendedSearch
+              return nil unless data[:query] && !data[:query].to_s.strip.empty?
             end
 
             model_class.new(**data)

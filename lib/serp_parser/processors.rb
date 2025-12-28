@@ -113,5 +113,33 @@ module SerpParser
       cleaned = clean_text(text)
       cleaned.split(" ").map { |slice| extract_number(slice) }.compact
     end
+
+    # Extract and decode query parameter from Google search URL
+    # @param url [String] URL containing /search?q=...
+    # @return [String, nil] Decoded and downcased query string
+    def self.extract_query_from_search_url(url)
+      return nil if url.nil?
+
+      begin
+        # Extract q parameter from URL
+        if url.include?("/search?") || url.include?("?q=")
+          uri = URI.parse(url)
+          params = URI.decode_www_form(uri.query.to_s).to_h
+          query = params["q"]
+
+          if query
+            # Decode URL encoding and downcase
+            decoded = URI.decode_www_form_component(query)
+            clean_text(decoded).downcase
+          else
+            nil
+          end
+        else
+          nil
+        end
+      rescue
+        nil
+      end
+    end
   end
 end
