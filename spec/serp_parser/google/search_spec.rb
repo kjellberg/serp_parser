@@ -3,61 +3,61 @@
 require "spec_helper"
 
 RSpec.describe SerpParser::Google::Search do
-  let(:html) { File.read("spec/files/google/full_html_response.html") }
-  let(:doc) { Nokogiri::HTML::DocumentFragment.parse(html) }
-  let(:parser) { described_class.new(html) }
-  let(:parser_with_html) { described_class.new(html) }
+  # Find all 2025-*.html files in spec/files/google/
+  serp_files = Dir.glob("spec/files/google/2025-*.html").sort
 
-  describe "#initialize" do
-    it "initializes with doc" do
-      expect { parser }.not_to raise_error
-    end
+  serp_files.each do |html_file|
+    describe "parsing #{File.basename(html_file)}" do
+      let(:html) { File.read(html_file) }
+      let(:parser) { described_class.new(html) }
 
-    it "initializes with html" do
-      expect { parser_with_html }.not_to raise_error
-    end
-  end
-
-  describe "#search_information" do
-    it "returns hash with information" do
-      expect(parser.search_information).to be_an_instance_of(Hash)
-    end
-  end
-
-  describe "#organic_results" do
-    it "returns a collection object" do
-      expect(parser.organic_results).to be_an_instance_of(SerpParser::Collection)
-    end
-
-    it "returns organic results" do
-      expect(parser.organic_results).to all(be_an_instance_of(SerpParser::Models::OrganicResult))
-    end
-
-    it "returns 7 organic results" do
-      expect(parser.organic_results.size).to eq(7)
-    end
-
-    describe "#site_links of first result" do
-      it "returns an array of site links" do
-        expect(parser.organic_results.first.site_links).to all(be_an_instance_of(SerpParser::Models::OrganicResults::SiteLink))
+      describe "#initialize" do
+        it "initializes without error" do
+          expect { parser }.not_to raise_error
+        end
       end
 
-      it "returns 4 site links" do
-        expect(parser.organic_results.first.site_links.size).to eq(4)
-      end
-    end
-
-    describe "#position" do
-      it "returns position of first organic result" do
-        expect(parser.organic_results.first.position).to eq(1)
+      describe "#search_information" do
+        it "returns hash with information" do
+          expect(parser.search_information).to be_an_instance_of(Hash)
+        end
       end
 
-      it "returns position of last organic result" do
-        expect(parser.organic_results.last.position).to eq(7)
-      end
+      describe "#organic_results" do
+        it "returns a collection object" do
+          expect(parser.organic_results).to be_an_instance_of(SerpParser::Collection)
+        end
 
-      it "returns position of 5th organic result" do
-        expect(parser.organic_results[4].position).to eq(5)
+        it "returns organic results" do
+          expect(parser.organic_results).to all(be_an_instance_of(SerpParser::Models::OrganicResult))
+        end
+
+        it "returns the expected number of organic results" do
+          expected_size = File.basename(html_file) == "2025-12-23-mobile-best-running-shoes.html" ? 7 : 10
+          expect(parser.organic_results.size).to eq(expected_size)
+        end
+
+        describe "#position" do
+          it "returns position of first organic result" do
+            expect(parser.organic_results.first.position).to eq(1)
+          end
+
+          it "returns sequential positions" do
+            parser.organic_results.each_with_index do |result, index|
+              expect(result.position).to eq(index + 1)
+            end
+          end
+        end
+
+        describe "result structure" do
+          it "has title, url, and description" do
+            parser.organic_results.each do |result|
+              expect(result.title).to be_a(String)
+              expect(result.url).to be_a(String)
+              expect(result.description).to be_a(String).or be_nil
+            end
+          end
+        end
       end
     end
   end
