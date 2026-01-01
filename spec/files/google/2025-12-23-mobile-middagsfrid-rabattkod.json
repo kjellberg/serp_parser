@@ -23,32 +23,32 @@
       "rating": null,
       "site_links": [
         {
-          "position": null,
+          "position": 1,
           "title": "Vårt betyg",
           "url": "javascript:void(0)"
         },
         {
-          "position": null,
+          "position": 2,
           "title": "Varför Middagsfrid?",
           "url": "javascript:void(0)"
         },
         {
-          "position": null,
+          "position": 3,
           "title": "Hur beställer jag från...",
           "url": "javascript:void(0)"
         },
         {
-          "position": null,
+          "position": 4,
           "title": "Matkassar från Middagsfrid",
           "url": "javascript:void(0)"
         },
         {
-          "position": null,
+          "position": 5,
           "title": "Hur mycket kostar det?",
           "url": "javascript:void(0)"
         },
         {
-          "position": null,
+          "position": 6,
           "title": "Leveransalternativ",
           "url": "javascript:void(0)"
         }

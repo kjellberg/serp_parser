@@ -12,12 +12,15 @@ module SerpParser
         @description = args[:description]
         @url = args[:url]
         @rating = args[:rating]
-        @site_links = args[:site_links]
+        # Wrap site_links in a Collection to assign positions
+        @site_links = args[:site_links].is_a?(Array) ? SerpParser::Collection.new(args[:site_links]) : args[:site_links]
       end
 
       # Parse domain from url
       def domain
+        return nil unless url
         _domain = URI.parse(url).host
+        return nil unless _domain
         _domain.gsub(/www\./, "")
       end
 

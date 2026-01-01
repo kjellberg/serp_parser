@@ -62,6 +62,13 @@ module SerpParser
               text :title, ".", processors: [ :extract_title_with_fallback, :clean_text ]
               url :url, attribute: "href"
             end
+
+            variant "featured_links", meta: { first_seen: "2026-01-01" } do
+              match "a.tNxQIb"
+              model SerpParser::Models::OrganicResults::SiteLink
+              text :title, ".lKeYrd span"
+              url :url, attribute: "href"
+            end
           end
 
           component :related_search do
@@ -119,6 +126,16 @@ module SerpParser
               text :title, ".F0FGWb span"
               text :description, ".VwiC3b"
               url :url, "a.rTyHce", attribute: "href", processors: [ :extract_from_ping_if_needed ]
+              has_one :rating
+              has_many :site_links, component: :sitelinks
+            end
+
+            variant "featured_with_sitelinks", meta: { first_seen: "2026-01-01" } do
+              container "div.Ww4FFb.vt6azd:not(.xxAJT):not(.eDSE7e)"
+              required_children [ ".GkAmnd" ]
+              text :title, ".GkAmnd"
+              text :description, ".VwiC3b"
+              url :url, "a.rTyHce", attribute: "href"
               has_one :rating
               has_many :site_links, component: :sitelinks
             end

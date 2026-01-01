@@ -10,37 +10,37 @@
       "rating": null,
       "site_links": [
         {
-          "position": null,
+          "position": 1,
           "title": "Matkasse en person",
           "url": "https://www.hellofresh.se/matkasse/en-person"
         },
         {
-          "position": null,
+          "position": 2,
           "title": "Matkasse för två personer",
           "url": "https://www.hellofresh.se/matkasse/for-tva"
         },
         {
-          "position": null,
+          "position": 3,
           "title": "Vegetarisk matkasse",
           "url": "https://www.hellofresh.se/matkasse/vegetarisk"
         },
         {
-          "position": null,
+          "position": 4,
           "title": "Flexitarian matkasse",
           "url": "https://www.hellofresh.se/matkasse/flexitarian"
         },
         {
-          "position": null,
+          "position": 5,
           "title": "Matkasse student",
           "url": "https://www.hellofresh.se/matkasse/student"
         },
         {
-          "position": null,
+          "position": 6,
           "title": "Veckans matkasse",
           "url": "https://www.hellofresh.se/matkasse/veckans"
         },
         {
-          "position": null,
+          "position": 7,
           "title": "Billig matkasse",
           "url": "https://www.hellofresh.se/matkasse/billig"
         }
@@ -56,37 +56,37 @@
       "rating": null,
       "site_links": [
         {
-          "position": null,
+          "position": 1,
           "title": "På menyn",
           "url": "https://www.linasmatkasse.se/pa-menyn"
         },
         {
-          "position": null,
+          "position": 2,
           "title": "Beställ matkasse",
           "url": "https://www.linasmatkasse.se/registrering"
         },
         {
-          "position": null,
+          "position": 3,
           "title": "Hållbarhet på Linas Matkasse",
           "url": "https://www.linasmatkasse.se/hallbarhet"
         },
         {
-          "position": null,
+          "position": 4,
           "title": "Logga in",
           "url": "https://www.linasmatkasse.se/logga-in"
         },
         {
-          "position": null,
+          "position": 5,
           "title": "Kundservice",
           "url": "https://www.linasmatkasse.se/kontaktuppgifter"
         },
         {
-          "position": null,
+          "position": 6,
           "title": "Snabbt & lättlagat",
           "url": "https://www.linasmatkasse.se/matkasse/snabbtochlattlagat"
         },
         {
-          "position": null,
+          "position": 7,
           "title": "Leverans",
           "url": "https://www.linasmatkasse.se/leverans"
         }
@@ -102,27 +102,27 @@
       "rating": null,
       "site_links": [
         {
-          "position": null,
+          "position": 1,
           "title": "Mer om icas matkasse",
           "url": "https://www.ica.se/icas-matkasse/om-icas-matkasse/"
         },
         {
-          "position": null,
+          "position": 2,
           "title": "Familjens Favoriter",
           "url": "https://www.ica.se/icas-matkasse/familjens-favoriter/"
         },
         {
-          "position": null,
+          "position": 3,
           "title": "Bra att ha hemma",
           "url": "https://www.ica.se/icas-matkasse/bra-att-ha-hemma/"
         },
         {
-          "position": null,
+          "position": 4,
           "title": "Familjens Favoriter laktosfri",
           "url": "https://www.ica.se/icas-matkasse/familjens-favoriter-laktosfri/"
         },
         {
-          "position": null,
+          "position": 5,
           "title": "Familjens Favoriter vego",
           "url": "https://www.ica.se/icas-matkasse/familjens-favoriter-vego/"
         }

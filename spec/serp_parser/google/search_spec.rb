@@ -4,7 +4,7 @@ require "spec_helper"
 
 RSpec.describe SerpParser::Google::Search do
   # Find all 2025-*.html files in spec/files/google/
-  serp_files = Dir.glob("spec/files/google/2025-*.html").sort
+  serp_files = Dir.glob("spec/files/google/{2025,2026}-*.html").sort
 
   serp_files.each do |html_file|
     base_name = File.basename(html_file, ".html")
