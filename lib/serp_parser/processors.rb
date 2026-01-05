@@ -51,18 +51,51 @@ module SerpParser
       duplicate_element
     end
 
-    # Extract the URL from a Google redirect URL
+    # Extract the URL from a Google redirect URL and strip Google-specific parameters
     # Handles both "/url?q=" and "/url?sa=...&url=" formats.
+    # Also removes Google tracking parameters like srsltid, ved, usg, etc.
     # @param url [String]
     # @return [String, nil]
     def self.clean_google_url(url)
       return if url.nil?
-      return url unless url.start_with?("/url?")
+
+      # First, extract URL from Google redirect if needed
+      extracted_url = if url.start_with?("/url?")
+        begin
+          query = URI.parse(url).query
+          params = URI.decode_www_form(query.to_s).to_h
+          params["q"] || params["url"] || url
+        rescue
+          url
+        end
+      else
+        url
+      end
+
+      # Strip Google-specific parameters from the URL
+      strip_google_params(extracted_url)
+    end
+
+    # Strip Google-specific tracking parameters from a URL
+    # @param url [String]
+    # @return [String]
+    def self.strip_google_params(url)
+      return url if url.nil? || url.empty?
 
       begin
-        query = URI.parse(url).query
-        params = URI.decode_www_form(query.to_s).to_h
-        params["q"] || params["url"] || url
+        uri = URI.parse(url)
+        return url unless uri.query
+
+        # List of Google-specific parameters to remove
+        google_params = %w[srsltid ved usg opi sa source rct]
+
+        params = URI.decode_www_form(uri.query).reject do |key, _value|
+          google_params.include?(key)
+        end
+
+        # Rebuild URI without Google parameters
+        uri.query = params.empty? ? nil : URI.encode_www_form(params)
+        uri.to_s
       rescue
         url
       end
