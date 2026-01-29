@@ -125,7 +125,7 @@ module SerpParser
               required_children [ ".F0FGWb" ]
               text :title, ".F0FGWb span"
               text :description, ".VwiC3b"
-              url :url, "a.rTyHce", attribute: "href", processors: [ :extract_from_ping_if_needed ]
+              url :url, "a.rTyHce, a.UBFage", attribute: "href", processors: [ :extract_from_ping_if_needed ]
               has_one :rating
               has_many :site_links, component: :sitelinks
             end
@@ -135,7 +135,7 @@ module SerpParser
               required_children [ ".GkAmnd" ]
               text :title, ".GkAmnd"
               text :description, ".VwiC3b"
-              url :url, "a.rTyHce", attribute: "href"
+              url :url, "a.rTyHce, a.UBFage", attribute: "href"
               has_one :rating
               has_many :site_links, component: :sitelinks
             end
