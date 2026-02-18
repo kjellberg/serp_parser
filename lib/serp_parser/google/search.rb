@@ -11,6 +11,12 @@ module SerpParser
         @registry = Config.registry
       end
 
+      def ai_overview
+        results = Parsers::Element.find_all(@doc, :ai_overview, @registry)
+        return nil if results.empty?
+        SerpParser::Models::AiOverviewResult.new(**results.first)
+      end
+
       def organic_results
         results = Parsers::Element.find_all(@doc, :organic_result, @registry)
         models = results.map do |data|
@@ -59,6 +65,7 @@ module SerpParser
 
       def to_h
         {
+          ai_overview: ai_overview&.to_h,
           sponsored_results: sponsored_results.map(&:to_h),
           organic_results: organic_results.map(&:to_h),
           faq_results: faq_results.map(&:to_h),

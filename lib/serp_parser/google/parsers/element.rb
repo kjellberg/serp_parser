@@ -100,7 +100,7 @@ module SerpParser
             value = element.text
             element_ref = element
             processors.each do |p|
-              if p == :remove_span_elements || p == :find_description_node
+              if p == :remove_span_elements || p == :find_description_node || p == :strip_inner_style
                 element_ref = apply_processor(p, value, element_ref)
                 value = element_ref.text if element_ref.respond_to?(:text)
               else
@@ -135,6 +135,8 @@ module SerpParser
             Processors.parse_date(value)
           when :remove_span_elements
             Processors.remove_span_elements(element) || element
+          when :strip_inner_style
+            Processors.strip_inner_style(element) || element
           when :extract_number
             Processors.extract_number(value)
           when :normalize_number
@@ -251,6 +253,9 @@ module SerpParser
               return nil unless data[:query] && !data[:query].to_s.strip.empty?
             # For FAQ citations, need a non-internal URL
             elsif model_class == SerpParser::Models::FaqCitation
+              return nil unless data[:url] && !data[:url].to_s.start_with?("/")
+            # For AI citations, need a non-internal URL
+            elsif model_class == SerpParser::Models::AiCitation
               return nil unless data[:url] && !data[:url].to_s.start_with?("/")
             end
 

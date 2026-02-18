@@ -34,6 +34,18 @@ module SerpParser
       end
     end
 
+    # Returns a copy of the node with <style> and <script> children removed,
+    # so that .text on the result excludes embedded CSS/JS content.
+    # @param element [Nokogiri::XML::Element]
+    # @return [Nokogiri::XML::Element]
+    def self.strip_inner_style(element)
+      return element unless element.respond_to?(:dup)
+      clone = Nokogiri::HTML.fragment(element.to_html)
+      clone.css("style, script").each(&:remove)
+      clone.css('[style*="display:none"]').each(&:remove)
+      clone
+    end
+
     # Remove span elements from description
     # @param element [Nokogiri::XML::Element]
     # @return [Nokogiri::XML::Element]

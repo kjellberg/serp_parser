@@ -172,6 +172,24 @@ module SerpParser
             end
           end
 
+          component :ai_citation do
+            variant "standard", meta: { first_seen: "2026-12-18" } do
+              match ".Y3BBE a.H23r4e"
+              model SerpParser::Models::AiCitation
+              text :title, ".", processors: [ :text, :clean_text ]
+              url :url, attribute: "href"
+            end
+          end
+
+          element :ai_overview do
+            variant "standard", meta: { first_seen: "2026-12-18" } do
+              container '.FkX2oe[data-subtree="aimc"]'
+              required_children [ ".Y3BBE" ]
+              text :answer, ".Y3BBE", processors: [ :strip_inner_style, :clean_text ]
+              has_many :citations, component: :ai_citation
+            end
+          end
+
           element :related_searches do
             variant "filter_pills", meta: { first_seen: "2025-12-23" } do
               container "div.fBctee"

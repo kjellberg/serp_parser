@@ -1,0 +1,131 @@
+{
+  "ai_overview": {
+    "answer": "För att få den mest exakta och aktuella väderprognosen för Nykyrka, Motala, rekommenderas att du besöker SMHIs webbplats. SMHI erbjuder detaljerade prognoser som uppdateras regelbundet, vilket är viktigt för att fånga snabba väderomslag, enligt SMHIs kunskapsbank.",
+    "citations": [
+      {
+        "position": 1,
+        "title": "SMHIs webbplats",
+        "domain": "smhi.se",
+        "url": "https://www.smhi.se/klimat/klimatet-da-och-nu/arets-och-arstidernas-vader"
+      },
+      {
+        "position": 2,
+        "title": "SMHIs kunskapsbank",
+        "domain": "smhi.se",
+        "url": "https://www.smhi.se/kunskapsbanken/meteorologi/vaderprognoser/varfor-kan-vaderprognoser-skilja-sig-at"
+      }
+    ]
+  },
+  "sponsored_results": [],
+  "organic_results": [
+    {
+      "position": 1,
+      "title": "Väderprognos 10 dygn Nykyrka, Motala",
+      "description": "Vädret 10 dagar framåt i Nykyrka, Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och nedgång. Väder helt enkelt.",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/Nykyrka/Motala/2687688",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 2,
+      "title": "Väderprognos 10 dygn Motala",
+      "description": "Vädret 10 dagar framåt i Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och nedgång. Väder helt enkelt.",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/Motala/2690960",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 3,
+      "title": "Vädret i Nykyrka för 10 dygn. Jämför SMHI och YR",
+      "description": "Vädret i Nykyrka, Motala, för 10 dagar. Jämför SMHI och YR sida vid sida. Långtidsprognos med dygnsnederbörd, max och min temperatur.",
+      "domain": "vackertvader.se",
+      "url": "https://www.vackertvader.se/nykyrka/tio-dygn",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 4,
+      "title": "Väderprognos 10 dygn Västra Ny, Motala",
+      "description": "Vädret 10 dagar framåt i Västra Ny, Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och nedgång. Väder helt enkelt.",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/V%C3%A4stra%20Ny/Motala/2663852",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 5,
+      "title": "Väder Nykyrke - Östergötlands län: 14 dagar",
+      "description": "14 dagars väder i Nykyrke, Östergötlands län. Väderprognos inkl. vind, max och min temperatur och solens upp- och nedgång.",
+      "domain": "klart.se",
+      "url": "https://www.klart.se/se/%C3%B6sterg%C3%B6tlands-l%C3%A4n/v%C3%A4der-nykyrke/",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 6,
+      "title": "Väderprognos 10 dygn Motala verkstad, Motala",
+      "description": "för 2 dagar sedan — Vädret 10 dagar framåt i Motala verkstad, Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och ...",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/Motala%20verkstad/Motala/2690955",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 7,
+      "title": "SMHI Nykyrka",
+      "description": "Timme för timme-prognos från SMHI för Nykyrka. I Nykyrka är det just nu -8 grader, mulet och friska vindar i byarna, enligt SMHI. Det blir mulet på morgonen.",
+      "domain": "vackertvader.se",
+      "url": "https://www.vackertvader.se/nykyrka/timmar/smhi",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 8,
+      "title": "Väderprognos 10 dygn Forsområdet, Motala",
+      "description": "Vädret 10 dagar framåt i Forsområdet, Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och nedgång.",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/Forsomr%C3%A5det/Motala/6944539",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 9,
+      "title": "Väderprognos 10 dygn Fjuk, ö, Motala",
+      "description": "Vädret 10 dagar framåt i Fjuk, ö, Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och nedgång. Väder helt enkelt.",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/Fjuk/Motala/2714617",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 10,
+      "title": "Väderprognos 10 dygn Sten, Motala",
+      "description": "Vädret 10 dagar framåt i Sten, Motala. Väderprognos med vind, högsta (max) och lägsta (min) temperatur och solens upp- och nedgång. Väder helt enkelt.",
+      "domain": "smhi.se",
+      "url": "https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/Sten/Motala/2674313",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    }
+  ],
+  "faq_results": [],
+  "related_searches": [
+    "smhi motala 14 dagar",
+    "smhi motala 10 dagar",
+    "smhi motala radar",
+    "smhi motala djurkälla",
+    "smhi motala verkstad",
+    "väder motala yr"
+  ]
+}
