@@ -121,7 +121,7 @@ module SerpParser
             end
 
             variant "modern_card", meta: { first_seen: "2025-12-23" } do
-              container "div.Ww4FFb.vt6azd.xpd.EtOod.pkphOe"
+              container "div.Ww4FFb.vt6azd.xpd.EtOod.pkphOe:not(.D3Gjuc)"
               required_children [ ".F0FGWb" ]
               text :title, ".F0FGWb span"
               text :description, ".VwiC3b"
@@ -131,7 +131,7 @@ module SerpParser
             end
 
             variant "featured_with_sitelinks", meta: { first_seen: "2026-01-01" } do
-              container "div.Ww4FFb.vt6azd:not(.xxAJT):not(.eDSE7e)"
+              container "div.Ww4FFb.vt6azd:not(.xxAJT):not(.eDSE7e):not(.D3Gjuc)"
               required_children [ ".GkAmnd" ]
               text :title, ".GkAmnd"
               text :description, ".VwiC3b"
