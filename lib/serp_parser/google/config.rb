@@ -141,6 +141,18 @@ module SerpParser
             end
           end
 
+          element :sponsored_result do
+            variant "standard", meta: { first_seen: "2026-02-18" } do
+              container "div.Ww4FFb.D3Gjuc"
+              required_children [ ".GkAmnd", ".F0FGWb" ]
+              text :advertiser, ".GkAmnd"
+              text :title, ".F0FGWb span"
+              text :description, ".VwiC3b"
+              url :url, "a.UBFage", attribute: "href"
+              has_many :site_links, component: :sitelinks
+            end
+          end
+
           element :related_searches do
             variant "filter_pills", meta: { first_seen: "2025-12-23" } do
               container "div.fBctee"

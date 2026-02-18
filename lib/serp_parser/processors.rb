@@ -52,23 +52,34 @@ module SerpParser
     end
 
     # Extract the URL from a Google redirect URL and strip Google-specific parameters
-    # Handles both "/url?q=" and "/url?sa=...&url=" formats.
-    # Also removes Google tracking parameters like srsltid, ved, usg, etc.
+    # Handles "/url?q=", "/url?sa=...&url=", and "google.com/aclk?...&adurl=" formats.
+    # Also removes Google tracking parameters like srsltid, ved, usg, gclid, etc.
     # @param url [String]
     # @return [String, nil]
     def self.clean_google_url(url)
       return if url.nil?
 
-      # First, extract URL from Google redirect if needed
-      extracted_url = if url.start_with?("/url?")
-        begin
+      extracted_url = begin
+        if url.start_with?("/url?")
           query = URI.parse(url).query
           params = URI.decode_www_form(query.to_s).to_h
           params["q"] || params["url"] || url
-        rescue
+        elsif url.include?("google.com/aclk")
+          query = URI.parse(url).query
+          params = URI.decode_www_form(query.to_s).to_h
+          adurl = params["adurl"]
+          if adurl
+            # Strip all query params from ad destination URLs — they are all campaign tracking
+            uri = URI.parse(URI.decode_www_form_component(adurl))
+            uri.query = nil
+            uri.to_s
+          else
+            url
+          end
+        else
           url
         end
-      else
+      rescue
         url
       end
 
@@ -86,8 +97,12 @@ module SerpParser
         uri = URI.parse(url)
         return url unless uri.query
 
-        # List of Google-specific parameters to remove
-        google_params = %w[srsltid ved usg opi sa source rct]
+        # List of Google-specific and UTM tracking parameters to remove
+        google_params = %w[
+          srsltid ved usg opi sa source rct
+          gclid gad_source gad_campaignid gbraid
+          utm_source utm_medium utm_campaign utm_content utm_term utm_id utm_name
+        ]
 
         params = URI.decode_www_form(uri.query).reject do |key, _value|
           google_params.include?(key)

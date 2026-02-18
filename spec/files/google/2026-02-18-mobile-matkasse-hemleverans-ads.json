@@ -1,4 +1,86 @@
 {
+  "sponsored_results": [
+    {
+      "position": 1,
+      "advertiser": "HelloFresh™",
+      "title": "Billig matkasse - Spara upp till 1099 kr och få gratis snacks i 3 månader",
+      "description": null,
+      "domain": "hellofresh.se",
+      "url": "https://www.hellofresh.se/matkasse/billig",
+      "site_links": [
+        {
+          "position": 1,
+          "title": "Matkasse med hemleverans",
+          "url": "https://www.hellofresh.se/matkasse/billig"
+        },
+        {
+          "position": 2,
+          "title": "Våra Matkassar",
+          "url": "https://www.hellofresh.se/plans"
+        },
+        {
+          "position": 3,
+          "title": "Hur Det Funkar",
+          "url": "https://www.hellofresh.se/how-it-works/"
+        },
+        {
+          "position": 4,
+          "title": "Välj Bland Veckans Recept",
+          "url": "https://www.hellofresh.se/matkasse/veckans"
+        },
+        {
+          "position": 5,
+          "title": "Sveriges mest sålda matkasse",
+          "url": "https://www.hellofresh.se/matkasse/billig"
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "advertiser": "Hemköp",
+      "title": "Matkasse hemleverans - Hämta själv eller hemkörning",
+      "description": null,
+      "domain": "hemkop.se",
+      "url": "https://www.hemkop.se/handla",
+      "site_links": []
+    },
+    {
+      "position": 3,
+      "advertiser": "Linas Matkasse",
+      "title": "Matkassen utan bindningstid | Goda middagar med 30% rabatt",
+      "description": null,
+      "domain": "linasmatkasse.se",
+      "url": "https://www.linasmatkasse.se/",
+      "site_links": []
+    },
+    {
+      "position": 4,
+      "advertiser": "Mathem",
+      "title": "Mat hemleverans | Hemleverans 7 dagar i veckan",
+      "description": null,
+      "domain": "mathem.se",
+      "url": "https://www.mathem.se/",
+      "site_links": []
+    },
+    {
+      "position": 5,
+      "advertiser": "HelloFresh™",
+      "title": "HelloFresh - upp till 1099 kr | Matkasse med hemleverans",
+      "description": null,
+      "domain": "hellofresh.se",
+      "url": "https://www.hellofresh.se/pages/inspiration-delivered",
+      "site_links": []
+    },
+    {
+      "position": 6,
+      "advertiser": "Hemköp",
+      "title": "Matkasse hemleverans",
+      "description": null,
+      "domain": "hemkop.se",
+      "url": "https://www.hemkop.se/handla",
+      "site_links": []
+    }
+  ],
   "organic_results": [
     {
       "position": 1,

@@ -19,6 +19,14 @@ module SerpParser
         SerpParser::Collection.new(models)
       end
 
+      def sponsored_results
+        results = Parsers::Element.find_all(@doc, :sponsored_result, @registry)
+        models = results.map do |data|
+          SerpParser::Models::SponsoredResult.new(**data)
+        end
+        SerpParser::Collection.new(models)
+      end
+
       def related_searches
         results = Parsers::Element.find_all(@doc, :related_searches, @registry)
         # Extract related search models from results (combines both filter pills and questions)
@@ -45,6 +53,7 @@ module SerpParser
 
       def to_h
         {
+          sponsored_results: sponsored_results.map(&:to_h),
           organic_results: organic_results.map(&:to_h),
           related_searches: related_searches.map(&:to_h)
         }
