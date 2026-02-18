@@ -151,6 +151,16 @@
     },
     {
       "position": 6,
+      "title": "Prisvärda Matkassen 2025 - kr/portion & toppval - Mellisdags",
+      "description": null,
+      "domain": "mellisdags.se",
+      "url": "https://mellisdags.se/bloggen/prisvarda-matkassen/",
+      "date": null,
+      "rating": null,
+      "site_links": []
+    },
+    {
+      "position": 7,
       "title": "Bygg ihop din egen matkasse med recept",
       "description": "Matkassen utifrån dina preferenser. Köp recept hos oss och bygg ihop din egen matkasse. Ta hjälp av våra veckomenyer för att planera din vecka.",
       "domain": "citygross.se",
@@ -160,7 +170,7 @@
       "site_links": []
     },
     {
-      "position": 7,
+      "position": 8,
       "title": "Matkasse - skapa egna veckomenyer, beställ snabbt & enkelt - Coop",
       "description": "En matkasse som inte är som andra matkassar. Skräddarsy din veckomeny och handla bara de ingredienser du inte redan har hemma. Billigt och klimatsmart!",
       "domain": "coop.se",
@@ -170,7 +180,7 @@
       "site_links": []
     },
     {
-      "position": 8,
+      "position": 9,
       "title": "Matkasse för 5+ personer: Meny i 1-20 dagar (hemleverans).",
       "description": "Lista med alla extra stora matkassar för 5+ personer som serverar upp till 20 middagar. ✓Rabattkoder 2025. ✓Omdömen. ✓Utbud. ✓Sortera & filtrera.",
       "domain": "middagskassen.se",
@@ -180,7 +190,7 @@
       "site_links": []
     },
     {
-      "position": 9,
+      "position": 10,
       "title": "Ekologisk matkasse för 1, 2, 3, eller 4 personer",
       "description": "Ekologisk matkasse med hemleverans. Välj vår Vegetariska Matkasse till 1, 2, 3 eller 4 personer.",
       "domain": "arstiderna.com",
@@ -190,7 +200,7 @@
       "site_links": []
     },
     {
-      "position": 10,
+      "position": 11,
       "title": "MATKASSE [2025] Jämför matkassar för hemleverans",
       "description": "Precis som för dig som vill ha hälsosamma matkassar hem så kan du också få de matkassar som är helt vegetariska och t.om. veganska. Att beställa matkasse ...",
       "domain": "hitta-matkasse.se",
@@ -200,12 +210,68 @@
       "site_links": []
     }
   ],
+  "faq_results": [
+    {
+      "position": 1,
+      "question": "Vilken matkasse är mest prisvärd?",
+      "answer": "Vår topp 8 - mest prisvärda matkassarna 2025 (ordinarie pris/portion)MatkassePaket (exempel)Pris/portionHelloFresh5 middagar × 4 pers54,50 krLinas Matkasse5 middagar × 6 pers55,97 krBetterfeast7 dagar × 5 pers (familjelåda)56,71 krMatkomfort4 dagar × 8 pers60,47 kr4 rader till•26 okt. 2025",
+      "citations": [
+        {
+          "position": 1,
+          "title": "Prisvärda Matkassen 2025 - kr/portion & toppval - Mellisdags",
+          "domain": "mellisdags.se",
+          "url": "https://mellisdags.se/bloggen/prisvarda-matkassen/"
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "question": "Vilken matkasse är bäst i test?",
+      "answer": "Linas Matkasse - Bästa matkassen 2025 Vilken matkasse är bäst? Den bästa matkassen 2025 är Linas Matkasse. Efter att ha granskat tester, pratat med experter och lyssnat på konsumenternas omdömen, står Linas Matkasse som vinnare bland matkassar bäst i test.",
+      "citations": [
+        {
+          "position": 1,
+          "title": "Bästa matkassen 2025 - Bäst i test Guiden",
+          "domain": "bast-i-test.se",
+          "url": "https://www.bast-i-test.se/tester_pa_basta/matkassen.html"
+        }
+      ]
+    },
+    {
+      "position": 3,
+      "question": "Vad hände med Linas Matkasse?",
+      "answer": "Den sista september planerar Axfood att avveckla sitt matkassebolag Middagsfrid efter svag marknadsutveckling, och hänvisa sina kunder till Linas Matkasse. – Middagsfrid har under de senaste åren skapat ett modernt och uppskattat erbjudande av matkassar och bidragit med matinnovation inom Axfoodkoncernen.",
+      "citations": [
+        {
+          "position": 1,
+          "title": "Avvecklar Middagsfrid – och ingår avtal med Linas Matkasse",
+          "domain": "ja.se",
+          "url": "https://www.ja.se/artikel/2235992/avvecklar-middagsfrid--och-ingr-avtal-med-linas-matkasse.html"
+        }
+      ]
+    },
+    {
+      "position": 4,
+      "question": "Vilken är Sveriges billigaste matkasse?",
+      "answer": "Willys matkasse blev även denna gång den billigaste i alla boendesituationer i alla utvalda regioner i landet. Den senaste undersökningen gjordes i augusti 2025. Här hittar du Matpriskollens gedigna prisundersökning. TTELA prisjämförelse december 2025 av 36 varor och åtta olika handlare i Trollhättan och Vänerbsorg.",
+      "citations": [
+        {
+          "position": 1,
+          "title": "Billigaste matkassen i flera pristester! - Willys",
+          "domain": "willys.se",
+          "url": "https://www.willys.se/artikel/lagapriser"
+        }
+      ]
+    }
+  ],
   "related_searches": [
     "matkasse ica",
     "citygross matkasse",
     "coop matkasse",
     "willys matkasse",
     "matkasse hemleverans",
-    "matkasse familj"
+    "matkasse familj",
+    "matkasse recept",
+    "matkasse bäst i test"
   ]
 }

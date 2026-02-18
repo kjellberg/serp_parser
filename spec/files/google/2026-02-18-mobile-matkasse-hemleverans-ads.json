@@ -183,6 +183,32 @@
       "site_links": []
     }
   ],
+  "faq_results": [
+    {
+      "position": 1,
+      "question": "Vilken matkasse är mest prisvärd?",
+      "answer": null,
+      "citations": []
+    },
+    {
+      "position": 2,
+      "question": "Vad kostar hemleverans av mat från ICA?",
+      "answer": null,
+      "citations": []
+    },
+    {
+      "position": 3,
+      "question": "Vad kostar hemkörning av mat från Willys?",
+      "answer": null,
+      "citations": []
+    },
+    {
+      "position": 4,
+      "question": "Vad kostar hemkörning av matvaror?",
+      "answer": null,
+      "citations": []
+    }
+  ],
   "related_searches": [
     "city gross matkasse hemleverans",
     "coop matkasse hemleverans",

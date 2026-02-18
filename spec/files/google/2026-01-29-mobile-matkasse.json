@@ -102,6 +102,32 @@
       "site_links": []
     }
   ],
+  "faq_results": [
+    {
+      "position": 1,
+      "question": "Vilken matkasse är mest prisvärd?",
+      "answer": null,
+      "citations": []
+    },
+    {
+      "position": 2,
+      "question": "Vad är en matkasse?",
+      "answer": null,
+      "citations": []
+    },
+    {
+      "position": 3,
+      "question": "Vad hände med Linas Matkasse?",
+      "answer": null,
+      "citations": []
+    },
+    {
+      "position": 4,
+      "question": "Vilken är den billigaste matkassen?",
+      "answer": null,
+      "citations": []
+    }
+  ],
   "related_searches": [
     "matkasse ica",
     "citygross matkasse",

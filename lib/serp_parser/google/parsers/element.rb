@@ -249,6 +249,9 @@ module SerpParser
             # For related searches, need a query
             elsif model_class == SerpParser::Models::RelatedSearch
               return nil unless data[:query] && !data[:query].to_s.strip.empty?
+            # For FAQ citations, need a non-internal URL
+            elsif model_class == SerpParser::Models::FaqCitation
+              return nil unless data[:url] && !data[:url].to_s.start_with?("/")
             end
 
             model_class.new(**data)

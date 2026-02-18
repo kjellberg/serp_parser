@@ -83,6 +83,9 @@ module SerpParser
         url
       end
 
+      # Discard relative/internal URLs (e.g. /search?q=...)
+      return nil if extracted_url.start_with?("/")
+
       # Strip Google-specific parameters from the URL
       strip_google_params(extracted_url)
     end

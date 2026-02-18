@@ -153,6 +153,25 @@ module SerpParser
             end
           end
 
+          component :faq_citation do
+            variant "standard", meta: { first_seen: "2026-02-18" } do
+              match ".bCOlv a.sXtWJb"
+              model SerpParser::Models::FaqCitation
+              text :title, ".", processors: [ :text, :clean_text ]
+              url :url, attribute: "href"
+            end
+          end
+
+          element :faq_result do
+            variant "paa", meta: { first_seen: "2026-02-18" } do
+              container "div.wQiwMc.related-question-pair"
+              required_children [ ".JlqpRe" ]
+              text :question, ".JlqpRe span span"
+              text :answer, ".hgKElc, .Crs1tb"
+              has_many :citations, component: :faq_citation
+            end
+          end
+
           element :related_searches do
             variant "filter_pills", meta: { first_seen: "2025-12-23" } do
               container "div.fBctee"
