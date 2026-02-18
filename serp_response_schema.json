@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kjellberg/serp_parser/serp_response_schema.json",
+  "title": "Google SERP Response",
+  "description": "Full parsed output from SerpParser::Google::Search#to_h",
+  "type": "object",
+  "required": [
+    "ai_overview",
+    "sponsored_results",
+    "organic_results",
+    "faq_results",
+    "related_searches"
+  ],
+  "properties": {
+
+    "ai_overview": {
+      "description": "Google AI Overview (formerly SGE). Present only when Google shows an AI-generated answer at the top of the page. null when absent.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["answer", "citations"],
+          "properties": {
+            "answer": {
+              "description": "The full AI-generated answer text, including any inline citation link text. null when the answer text was not present in the static HTML (dynamically loaded without scripts).",
+              "type": ["string", "null"],
+              "example": "För att få den mest exakta och aktuella väderprognosen för Nykyrka, Motala, rekommenderas att du besöker SMHIs webbplats."
+            },
+            "citations": {
+              "description": "Sources cited inline within the AI answer text, in order of appearance.",
+              "type": "array",
+              "items": { "$ref": "#/$defs/ai_citation" }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+
+    "sponsored_results": {
+      "description": "Paid/advertised results (Google Ads) shown on the page, in display order.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/sponsored_result" }
+    },
+
+    "organic_results": {
+      "description": "Non-paid search results, in display order. Ad blocks are excluded.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/organic_result" }
+    },
+
+    "faq_results": {
+      "description": "\"People Also Ask\" FAQ accordion items, in display order.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/faq_result" }
+    },
+
+    "related_searches": {
+      "description": "Related search query strings shown at the bottom of the page.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "matkasse familj recept"
+      }
+    }
+
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+
+    "ai_citation": {
+      "description": "A source cited inline in the AI Overview answer text.",
+      "type": "object",
+      "required": ["position", "title", "domain", "url"],
+      "properties": {
+        "position": {
+          "description": "1-based position of this citation within the AI answer, in order of appearance.",
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        },
+        "title": {
+          "description": "The anchor text of the citation link as it appears in the AI answer.",
+          "type": ["string", "null"],
+          "example": "SMHIs webbplats"
+        },
+        "domain": {
+          "description": "Hostname of the cited page, with leading www. stripped.",
+          "type": ["string", "null"],
+          "example": "smhi.se"
+        },
+        "url": {
+          "description": "Full URL of the cited page.",
+          "type": ["string", "null"],
+          "format": "uri",
+          "example": "https://www.smhi.se/kunskapsbanken/meteorologi/vaderprognoser/varfor-kan-vaderprognoser-skilja-sig-at"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "sponsored_result": {
+      "description": "A single paid/advertised result (Google Ad).",
+      "type": "object",
+      "required": ["position", "advertiser", "title", "description", "domain", "url", "site_links"],
+      "properties": {
+        "position": {
+          "description": "1-based position among all sponsored results.",
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        },
+        "advertiser": {
+          "description": "The advertiser name displayed above the ad title.",
+          "type": ["string", "null"],
+          "example": "Linas Matkasse"
+        },
+        "title": {
+          "description": "The ad headline/title.",
+          "type": ["string", "null"],
+          "example": "Linas Matkasse - Prova 2 veckor för 299 kr"
+        },
+        "description": {
+          "description": "The ad body text shown below the title.",
+          "type": ["string", "null"],
+          "example": "Välj bland hundratals recept och få maten hemkörd."
+        },
+        "domain": {
+          "description": "Hostname of the ad landing page, with leading www. stripped. All tracking parameters are removed.",
+          "type": ["string", "null"],
+          "example": "linasmatkasse.se"
+        },
+        "url": {
+          "description": "Destination URL of the ad. Extracted from Google's aclk redirect. All query parameters (campaign tracking) are stripped — only scheme, host and path are kept.",
+          "type": ["string", "null"],
+          "format": "uri",
+          "example": "https://linasmatkasse.se/kampanj/familj"
+        },
+        "site_links": {
+          "description": "Additional quick-link sitelinks shown beneath the ad.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/site_link" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "organic_result": {
+      "description": "A single non-paid search result.",
+      "type": "object",
+      "required": ["position", "title", "description", "domain", "url", "date", "rating", "site_links"],
+      "properties": {
+        "position": {
+          "description": "1-based position among all organic results.",
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        },
+        "title": {
+          "description": "The result title/headline.",
+          "type": ["string", "null"],
+          "example": "Bästa matkassen 2025 – Test av 12 matkassar"
+        },
+        "description": {
+          "description": "The result snippet/description shown below the title.",
+          "type": ["string", "null"],
+          "example": "Vi har testat och jämfört de populäraste matkassarna på marknaden."
+        },
+        "domain": {
+          "description": "Hostname of the result URL, with leading www. stripped.",
+          "type": ["string", "null"],
+          "example": "bast-i-test.se"
+        },
+        "url": {
+          "description": "Full URL of the result page. Google tracking parameters (gclid, srsltid, utm_*) are stripped.",
+          "type": ["string", "null"],
+          "format": "uri",
+          "example": "https://www.bast-i-test.se/tester_pa_basta/matkass"
+        },
+        "date": {
+          "description": "Publication or last-modified date shown in the snippet, if present.",
+          "type": ["string", "null"],
+          "example": "2025-01-15"
+        },
+        "rating": {
+          "description": "Structured rating data extracted from rich snippets. null when no rating is shown.",
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/rating" }
+          ]
+        },
+        "site_links": {
+          "description": "Sitelinks shown beneath the result (featured/expanded layout).",
+          "type": "array",
+          "items": { "$ref": "#/$defs/site_link" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "faq_result": {
+      "description": "A single \"People Also Ask\" FAQ item.",
+      "type": "object",
+      "required": ["position", "question", "answer", "citations"],
+      "properties": {
+        "position": {
+          "description": "1-based position among all FAQ results.",
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        },
+        "question": {
+          "description": "The full question text.",
+          "type": ["string", "null"],
+          "example": "Vilken matkasse är bäst i test?"
+        },
+        "answer": {
+          "description": "The expanded answer text. null when the answer was not embedded in the HTML (e.g. scripts were stripped before saving, or the page uses pure client-side lazy loading).",
+          "type": ["string", "null"],
+          "example": "Linas Matkasse toppar vår lista 2025 med höga betyg för smak och variation."
+        },
+        "citations": {
+          "description": "Source links shown in the answer card, in display order.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/faq_citation" }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "faq_citation": {
+      "description": "A source link shown inside a FAQ answer card.",
+      "type": "object",
+      "required": ["position", "title", "domain", "url"],
+      "properties": {
+        "position": {
+          "description": "1-based position of this citation within the FAQ answer.",
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        },
+        "title": {
+          "description": "The page title of the cited source.",
+          "type": ["string", "null"],
+          "example": "Bästa matkassen 2025 – Linas Matkasse"
+        },
+        "domain": {
+          "description": "Hostname of the cited page, with leading www. stripped.",
+          "type": ["string", "null"],
+          "example": "bast-i-test.se"
+        },
+        "url": {
+          "description": "Full URL of the cited page.",
+          "type": ["string", "null"],
+          "format": "uri",
+          "example": "https://www.bast-i-test.se/tester_pa_basta/matkass"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "site_link": {
+      "description": "A sitelink shown beneath an organic result or ad.",
+      "type": "object",
+      "required": ["position", "title", "url"],
+      "properties": {
+        "position": {
+          "description": "1-based position within the sitelinks list for this result.",
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        },
+        "title": {
+          "description": "The sitelink anchor text.",
+          "type": ["string", "null"],
+          "example": "Meny denna vecka"
+        },
+        "url": {
+          "description": "Full URL of the sitelink destination.",
+          "type": ["string", "null"],
+          "format": "uri",
+          "example": "https://linasmatkasse.se/meny"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "rating": {
+      "description": "Rich-snippet rating data extracted from an organic result.",
+      "type": "object",
+      "required": ["max_score"],
+      "properties": {
+        "score": {
+          "description": "The numeric rating score.",
+          "type": ["number", "null"],
+          "example": 4.5
+        },
+        "max_score": {
+          "description": "The maximum possible score (always 5 unless the snippet states otherwise).",
+          "type": "number",
+          "example": 5
+        },
+        "number_of_ratings": {
+          "description": "How many ratings the score is based on.",
+          "type": ["integer", "null"],
+          "example": 312
+        }
+      },
+      "additionalProperties": false
+    }
+
+  }
+}
