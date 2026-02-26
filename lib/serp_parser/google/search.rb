@@ -84,6 +84,9 @@ module SerpParser
         raw_html.scan(/jsl\.dh\(['"]([^'"]+)['"]\s*,\s*"((?:[^"\\]|\\.)*)"\s*[,)]/) do |id, content|
           id_map[id] = decode_js_string(content)
         end
+        raw_html.scan(/jsl\.dh\(['"]([^'"]+)['"]\s*,\s*'((?:[^'\\]|\\.)*)'\s*[,)]/) do |id, content|
+          id_map[id] = decode_js_string(content)
+        end
         return if id_map.empty?
 
         10.times do

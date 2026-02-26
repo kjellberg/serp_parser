@@ -173,19 +173,25 @@ module SerpParser
           end
 
           component :ai_citation do
-            variant "standard", meta: { first_seen: "2026-12-18" } do
-              match ".Y3BBE a.H23r4e"
+            variant "inline", meta: { first_seen: "2026-12-18" } do
+              match "a.H23r4e"
               model SerpParser::Models::AiCitation
-              text :title, ".", processors: [ :text, :clean_text ]
-              url :url, attribute: "href"
+              text :title, "."
+              url :url, ".", attribute: "href"
+            end
+
+            variant "standard", meta: { first_seen: "2026-12-18" } do
+              match "li.ZZh6Vb"
+              model SerpParser::Models::AiCitation
+              url :url, "a.KEVENd", attribute: "href"
             end
           end
 
           element :ai_overview do
             variant "standard", meta: { first_seen: "2026-12-18" } do
-              container '.FkX2oe[data-subtree="aimc"]'
-              required_children [ ".Y3BBE" ]
-              text :answer, ".Y3BBE", processors: [ :strip_inner_style, :clean_text ]
+              container ".h7Tj7e"
+              required_children [ '.FkX2oe[data-subtree="aimc"]' ]
+              text :answer, ".mZJni", processors: [ :strip_inner_style, :clean_text ]
               has_many :citations, component: :ai_citation
             end
           end

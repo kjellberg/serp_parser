@@ -5,8 +5,26 @@ module SerpParser
 
       def initialize(**args)
         @answer = args[:answer]
-        @citations = args[:citations].is_a?(Array) ? SerpParser::Collection.new(args[:citations]) : args[:citations]
+        raw = args[:citations].is_a?(Array) ? args[:citations] : []
+        @citations = SerpParser::Collection.new(deduplicate_citations(raw))
       end
+
+      private
+
+      # Merge inline citations (which carry titles) with source-panel citations.
+      # When the same URL appears in both, keep the titled inline version.
+      def deduplicate_citations(citations)
+        seen = {}
+        citations.each do |c|
+          url = c.url.to_s
+          next if url.empty?
+          existing = seen[url]
+          seen[url] = c if existing.nil? || (c.title && !existing.title)
+        end
+        seen.values
+      end
+
+      public
 
       def to_h
         ans = answer&.strip

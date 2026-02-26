@@ -43,6 +43,8 @@ module SerpParser
       clone = Nokogiri::HTML.fragment(element.to_html)
       clone.css("style, script").each(&:remove)
       clone.css('[style*="display:none"]').each(&:remove)
+      # Remove AI citation panels, inline citation chips, snippet cards, and source sections
+      clone.css(".alk4p, .PxKVs, .wklPJe, .uJ19be, [data-subtree='aimba'], li.ZZh6Vb").each(&:remove)
       clone
     end
 

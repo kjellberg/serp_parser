@@ -1,6 +1,6 @@
 {
   "ai_overview": {
-    "answer": "För att få den mest exakta och aktuella väderprognosen för Nykyrka, Motala, rekommenderas att du besöker SMHIs webbplats. SMHI erbjuder detaljerade prognoser som uppdateras regelbundet, vilket är viktigt för att fånga snabba väderomslag, enligt SMHIs kunskapsbank.",
+    "answer": "För att få den mest exakta och aktuella väderprognosen för Nykyrka, Motala, rekommenderas att du besöker SMHIs webbplats. SMHI erbjuder detaljerade prognoser som uppdateras regelbundet, vilket är viktigt för att fånga snabba väderomslag, enligt SMHIs kunskapsbank. Sök på SMHI: Gå till smhi.se och sök efter \"Nykyrka\" för 10-dygnsprognos, timme för timme, samt regn- och vindprognoser. Alternativ: Många använder även Yr.no som ofta anses ha bra, detaljerade prognoser . Viktigt att tänka på: Prognoser är mest tillförlitliga 1–3 dygn framåt i tiden, skriver Illvet.se. När nederbördsprognosen visar 50% eller högre, indikerar det en högre sannolikhet för regn, enligt SMHIs vädertolkning.",
     "citations": [
       {
         "position": 1,
@@ -13,6 +13,24 @@
         "title": "SMHIs kunskapsbank",
         "domain": "smhi.se",
         "url": "https://www.smhi.se/kunskapsbanken/meteorologi/vaderprognoser/varfor-kan-vaderprognoser-skilja-sig-at"
+      },
+      {
+        "position": 3,
+        "title": "Illvet.se",
+        "domain": "illvet.se",
+        "url": "https://illvet.se/naturen/vadret/hur-langt-framat-i-tiden-kan-man-forutsaga-vadret"
+      },
+      {
+        "position": 4,
+        "title": "SMHIs vädertolkning",
+        "domain": "smhi.se",
+        "url": "https://www.smhi.se/kunskapsbanken/meteorologi/vaderprognoser/tolka-smhis-vaderprognoser"
+      },
+      {
+        "position": 5,
+        "title": null,
+        "domain": "pctidningen.se",
+        "url": "https://pctidningen.se/program/app/de-3-basta-vadertjansterna"
       }
     ]
   },
