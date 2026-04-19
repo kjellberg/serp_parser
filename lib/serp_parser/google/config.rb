@@ -185,12 +185,26 @@ module SerpParser
               model SerpParser::Models::AiCitation
               url :url, "a.KEVENd", attribute: "href"
             end
+
+            variant "with_label", meta: { first_seen: "2026-04-19" } do
+              match "div.b8PhZd.dsYsnb"
+              model SerpParser::Models::AiCitation
+              text :title, "div[id]", processors: [ :text ]
+              url :url, "a.Zbfntb", attribute: "href"
+            end
           end
 
           element :ai_overview do
             variant "standard", meta: { first_seen: "2026-12-18" } do
               container ".h7Tj7e"
               required_children [ '.FkX2oe[data-subtree="aimc"]' ]
+              text :answer, ".mZJni", processors: [ :strip_inner_style, :clean_text ]
+              has_many :citations, component: :ai_citation
+            end
+
+            variant "with_mfl", meta: { first_seen: "2026-04-19" } do
+              container ".h7Tj7e"
+              required_children [ '.FkX2oe', '[data-subtree*="aimfl"]' ]
               text :answer, ".mZJni", processors: [ :strip_inner_style, :clean_text ]
               has_many :citations, component: :ai_citation
             end

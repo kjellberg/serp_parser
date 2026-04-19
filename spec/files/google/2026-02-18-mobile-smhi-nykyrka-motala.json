@@ -28,9 +28,21 @@
       },
       {
         "position": 5,
-        "title": null,
+        "title": "Bästa väderappen: Här är de 3 mest exakta väderprognoserna",
         "domain": "pctidningen.se",
         "url": "https://pctidningen.se/program/app/de-3-basta-vadertjansterna"
+      },
+      {
+        "position": 6,
+        "title": "Tolka SMHIs väderprognoser — SMHI - Meteorologi",
+        "domain": "smhi.se",
+        "url": "https://www.smhi.se/kunskapsbanken/meteorologi/vaderprognoser/tolka-smhis-vaderprognoser#:~:text=Procentsiffran%20anger%20sannolikheten%20(risken/chansen)%20f%C3%B6r%20nederb%C3%B6rd.%20En,bakgrund%20och%20d%C3%A5%20visar%20%C3%A4ven%20v%C3%A4dersymbolen%20nederb%C3%B6rd."
+      },
+      {
+        "position": 7,
+        "title": "Hur långt framåt i tiden kan man förutsäga vädret? | illvet.se",
+        "domain": "illvet.se",
+        "url": "https://illvet.se/naturen/vadret/hur-langt-framat-i-tiden-kan-man-forutsaga-vadret#:~:text=Vissa%20v%C3%A4derprognoser%20str%C3%A4cker%20sig%2014%20dagar%20fram%C3%A5t,80%20procent%20av%20fallen%20tre%20dygn%20fram%C3%A5t"
       }
     ]
   },

@@ -46,8 +46,8 @@ end
 
 RSpec.shared_examples "matches the expected output" do |file_path|
   context "parsing #{File.basename(file_path)}" do
-    let(:html) { File.read("spec/files/#{file_path}.html") }
-    let(:expected_output) { JSON.parse(File.read("spec/files/#{file_path}.json")) }
+    let(:html) { File.read("spec/files/#{file_path}.html", encoding: 'UTF-8') }
+    let(:expected_output) { JSON.parse(File.read("spec/files/#{file_path}.json", encoding: 'UTF-8')) }
     let(:parser) { described_class.new(html) }
 
     it "initializes without error" do
