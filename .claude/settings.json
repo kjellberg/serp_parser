@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ruby -rjson -ruri -e ' *)",
+      "Bash(git check-ignore *)"
+    ]
+  }
+}

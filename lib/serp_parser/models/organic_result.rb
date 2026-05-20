@@ -19,9 +19,9 @@ module SerpParser
       # Parse domain from url
       def domain
         return nil unless url
-        _domain = URI.parse(url).host
-        return nil unless _domain
-        _domain.gsub(/www\./, "")
+        URI.parse(url).host
+      rescue URI::InvalidURIError
+        nil
       end
 
       # Convert the object to a hash
